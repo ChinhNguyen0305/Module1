@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+  </head>
+  <body>
+    <form action="sothich.html" method="GET">
+      <table
+        style="background-color: rgb(95, 147, 154)"
+        ;
+        align="center; "
+        ;
+        width="50%"
+      >
+        <thead style="color: rgb(160, 147, 125)">
+          <caption style="font-size: 30; background-color: rgb(58, 99, 81)">
+            Đăng ký học viên
+          </caption>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Họ và tên</td>
+            <td>
+              <input
+                type="text"
+                name="fullname"
+                id=""
+                placeholder="Nguyễn Văn A"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Ngày sinh</td>
+            <td><input type="date" name="" id="" /></td>
+          </tr>
+          <tr>
+            <td>Giới tính</td>
+            <td>
+              <input type="radio" name="gender" id="" />Nam
+              <input type="radio" name="gender" id="" /> Nữ
+            </td>
+          </tr>
+          <tr>
+            <td>Địa chỉ</td>
+            <td colspan="2">
+              <textarea name="" id="" cols="65" rows="5"></textarea>
+            </td>
+          </tr>
+          <tr>
+               <td>Lớp</td> 
+            <td>
+                <select name="Class" id="">
+              <option value="0">--Chọn lớp--</option>
+              <option value="1">1A</option>
+              <option value="2">1B</option>
+              <option value="3">1C</option>            
+             </td>
+          </tr>
+          <tr>
+            <td>
+            Email
+            </td>
+            <td><input type="email"  placeholder="Example@gmail.com"></td>
+          </tr>
+          <tr>
+              <td>Số điện thoại</td>
+              <td><input type="tel" name="phone" id=""></td>
+          </tr>
+          <tr>
+              <td><input type="submit" value="Đăng ký"> <input type="reset"  value="Nhập lại" name="reset" id=""></td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </body>
+</html>
