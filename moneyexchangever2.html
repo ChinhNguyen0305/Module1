@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+      <table>
+        <thead>
+          <th>Amount</th>
+          <th>From currency</th>
+          <th colspan="2">To currency</th>
+        </thead>
+        <tbody>
+          <td><input type="number" id="amount" /></td>
+          <td>
+            <select name="" id="currency">
+              <option value="VND">VND</option>
+              <option value="USD">USD</option>
+              <option value="Zen">Zen</option>
+            
+            </select>
+          </td>
+          <td>
+            <select name="" id="target_currency">
+              <option value="VND">VND</option>
+              <option value="USD">USD</option>
+              <option value="Zen">Zen</option>
+            </select>
+          </td>
+          <td>
+            <input
+              type="button"
+              name="convert"
+              id="convert"
+              onclick= "convert()"
+              value="convert"
+            >
+          </td>
+          <tr>
+            <td>Result <input type="text" id="converted" value=""/></td>
+          </tr>
+        </tbody>
+       
+      </table>
+    
+  </body>
+  <script>
+    function convert() {
+           let currency = document.getElementById('currency').value;
+           let   amount = document.getElementById('amount').value;
+           let  target_currency = document.getElementById('target_currency').value;
+          if (currency == 'VND' && target_currency =='USD') {
+            document.getElementById('converted').value = amount/23000
+          }else if (currency == 'VND' && target_currency == 'Zen'){
+              document.getElementById('converted').value = amount / 200
+            } 
+         
+
+          if (currency == 'USD' && target_currency =='VND') {
+            console.log('aaaaa');
+            document.getElementById('converted').value = amount * 23000}
+            else if (currency == 'USD' && target_currency == 'Zen'){
+              document.getElementById('converted').value = amount * 100
+            };
+            if (currency == 'Zen' && target_currency =='USD') {
+            document.getElementById('converted').value = amount/100}
+            else if (currency == 'Zen' && target_currency == 'VND'){
+              document.getElementById('converted').value = amount * 200
+            }
+          };
+  </script>
+</html>
