@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Run Nobita run!</title>
+</head>
+<body onload="doReady()">
+    <img src="resource/nobitarun.jpeg" alt="Nobita running" id="nobitarun" style="position:relative; left: 0px; top: 0px;">
+    <div> Use arrows keys to move Nobita</div>
+</body>
+<script>
+    var nobita = document.getElementById('nobitarun')
+    
+    function upArrowPressed(){
+    
+    nobita.style.top = parseInt(nobita.style.top) - 5 +'px'
+    }
+    function downArrowPressed(){
+        nobita.style.top = parseInt(nobita.style.top) + 5 + 'px'
+    }
+    function leftArrowPressed() {
+        nobita.style.left = parseInt(nobita.style.left) - 5 +'px'
+    }
+    function rightArrowPressed() {
+        nobita.style.left= parseInt(nobita.style.left) + 5 + 'px'
+    }
+    function moveSelection() {
+        switch (event.keyCode){
+            case 37:
+                leftArrowPressed();
+                break;
+            case 39:
+                rightArrowPressed();
+                break;
+            case 38:
+                upArrowPressed();
+                break;
+            case 40:
+                downArrowPressed()
+                break;
+                
+        }
+    }
+    function doReady() {
+    window.addEventListener('keydown', moveSelection);
+}
+
+</script>
+</html>
