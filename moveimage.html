@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Move image</title>
+</head>
+<body>
+    <img src="resource/ball.png"  id="myBall" width="200" height="200" style="position: relative; left: 0px;">
+    <p>Click button to move the ball</p>
+    <input type="button" value="click to move" id="move" onclick="moveRight()">
+</body>
+<script>
+    let imgObj = null;
+    imgObj = document.getElementById('myBall');
+
+    // function init() {
+    //     imgObj = document.getElementById('myBall');
+    //     imgObj.style.position = 'relative';
+    //     imgObj.style.left = '0px'
+    // }
+    function moveRight(){
+        imgObj.style.left = parseInt(imgObj.style.left) + 10 + 'px'
+    }
+    // window.onload= init;
+
+</script>
+</html>
