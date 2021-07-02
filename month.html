@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch case</title>
+</head>
+<body>
+    <input type="number" name="" id="month">
+    <input type="button" name="" id="numberofdays" value="Nhấp để biết số ngày" onclick="calculate()"><br>
+    Số ngày: <p id="days"> </p>
+</body>
+<script>
+    function calculate(){
+    var month = document.getElementById('month').value;
+    console.log(month)
+    switch (month) {
+        case '1':
+        case '3':
+        case '5':
+        case '7':
+        case '8':
+        case '10':
+        case '12':
+        document.getElementsByTagName('p')[0].innerText = ` Tháng ${month} có 31 ngày`;
+
+        break;
+        case '2':
+        document.getElementsByTagName('p')[0].innerText = ` Tháng ${month} có 28 hoặc 29 ngày`;
+         break;
+         case '4':
+         case '6':
+         case '9':
+         case '11':
+        document.getElementsByTagName('p')[0].innerText = ` Tháng ${month} có 30 ngày`;
+        break; 
+       
+    }
+}
+</script>
+</html>
