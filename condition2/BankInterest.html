@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Back Interest</title>
+    <style>
+        table{
+            border: 2px solid   blue ; width: 90%; border-collapse: collapse;text-align:  center;
+        }
+        caption{
+            border: 2px solid blue ; width: 99%
+        }
+        th,td{
+            border: 1px solid blue
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>Bank Interest Spreadsheet</caption>
+    <thead>
+        <th>Month</th>
+        <th>1~3 months</th>
+        <th>3~6 months</th>
+        <th>6~9 months</th>
+        <th>over 9months</th>
+      
+    </thead>
+    <tbody>
+        <tr>
+            <td>Interest</td>
+            <td>0.5%</td>
+            <td>2%</td>
+            <td>3%</td>
+            <td>5%</td>
+        </tr>
+        <tr>
+            <td>Amount:</td>
+            <td><input type="text" id="amount"></td>
+            <td>Bank deposit time:</td>
+            <td colspan="2"> <input type="text" name="" id="month"></td>
+        </tr>
+        <tr>
+            <td>Interest:</td>
+            <td colspan="4"> <p></p></td>
+        </tr>
+    </tbody>
+    </table>
+</body>
+<script>
+    document.getElementsByTagName('input')[1].addEventListener('change',interestCount)
+    function interestCount(){
+        var amount = parseFloat(document.getElementsByTagName('input')[0].value);
+        var month = parseFloat(document.getElementById('month').value);
+        if (month > 1 && month <= 3){
+            interest = amount * 0.5/100 * month 
+        }
+        if (month > 3 && month <= 6){
+            interest = amount * 2 /100 * month
+        }
+        if (month > 6 && month <=9){
+            interest = amount * 3 /100 * month
+        }
+        if (month > 9  ){
+            interest = amount * 5 /100 * month
+        }
+        document.getElementsByTagName('p')[0].innerText = interest
+    }
+</script>
+</html>

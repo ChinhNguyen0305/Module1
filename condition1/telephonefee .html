@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TelePhone Free</title>
+    <style>
+        table{
+            border: 1px solid; border-collapse: collapse; width: 80%; background-color: rgb(50, 130, 184);
+        }
+        th,td{
+            border : 0.5px solid; text-align: center;
+        }
+       
+    </style>
+</head>
+<body>
+    <table>
+        <caption> <h3>Data pack charges</h3></caption>
+        <thead>
+            <tr>
+                <th rowspan="2">Supplier</th>
+                <th colspan="4">pack of data</th>
+                
+            </tr>
+            <tr>
+                
+                <td> 0 ~ 100 mins </td>
+                <td> 100 ~ 200 mins </td>
+                <td> over 200mins</td>
+            </tr>
+        </thead>
+        <tbody>
+        <tr style="background-color: rgb(187, 225, 250);"> 
+            <td>Viettel</td>　
+            <td>2,000/min</td>
+            <td>1,500/min</td>
+            <td>1000/min</td>
+        </tr>
+        <tr style="background-color: rgb(187, 225, 250);"> 
+            <td>MobiFone</td>　
+            <td>2,000/min</td>
+            <td>1,300/min</td>
+            <td>700/min</td>
+        </tr>
+        <tr style="background-color: rgb(187, 225, 250);"> 
+            <td>VinaPhone</td>　
+            <td>2,000/min</td>
+            <td>1,700/min</td>
+            <td>500/min</td>
+        </tr>      
+            
+        </tbody>
+        <tfoot>
+            <tr >
+                <td colspan="6">Nhập nhà mạng: <input type="text"  id="supplier"></td>
+            </tr>
+            <tr>
+                <td colspan="6"> Nhập thời gian gọi: <input type="number"  id="Time"> </td>
+            </tr>
+          
+            <tr>
+               <td colspan="6"> <button id="calculator" onclick="feeCheck()" style="height: 70px;width: 80px; background-color: rgb(162, 219, 250);border-radius: 20%;font: small-caps;"> Tính phí</button> <p id="fee"> </p></td>
+               <td> <p></p></td>
+            </tr>
+        </tfoot>
+    </table>
+    <script>
+         
+            
+            function feeCheck(){
+                var supplier = document.getElementsByTagName('input')[0].value;
+                var callTime = parseInt(document.getElementById('Time').value);       
+            
+                if(supplier == 'Viettel'){
+                    if(callTime > 0 && callTime <= 100){
+                         fee = callTime * 2000
+                    } else if ( callTime > 100 & callTime < 200) {
+                        fee = 1500 * callTime
+                    } else {
+                        fee = 1000 * callTime
+                    }
+                }
+            
+            if( supplier == 'MobiFone'){
+                    if(callTime > 0 && callTime <= 100){
+                        fee = 2000 
+                    } else if ( callTime > 100 & callTime < 200) {
+                        fee = 1300 * callTime
+                    } else {
+                        fee = 700 * callTime
+                    }
+                }
+            
+            if(supplier == 'VinaPhone'){
+                    if(callTime > 0 && callTime <= 100){
+                        fee = 2000 * callTime
+                    } else if ( callTime > 100 & callTime < 200) {
+                        fee = 1700 * callTime
+                    } else {
+                        fee = 500 * callTime
+                    }
+            }
+           
+            document.getElementsByTagName('p')[0].innerHTML = `Cước phí gọi là ${fee} VND`
+        }
+    
+    </script>
+</body>
+</html>

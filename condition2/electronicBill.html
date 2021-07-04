@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electronic bill</title>
+    <style>
+        table{
+            border: 1px solid; border-collapse: collapse; width: 80%; background-color: rgb(50, 130, 184); padding: 10px;
+        }
+        th,td{
+            border : 0.5px solid; text-align: center;
+        }
+       
+    </style>
+</head>
+<body>
+    <table>
+        <caption> <h3>Electronic bill</h3></caption>
+        <thead>
+            <tr>
+          
+                <th colspan="5 ">pack of Electric</th>
+                
+            </tr>
+            <tr>
+                
+                <td> 0 ~ 50kWh </td>
+                <td> 51 ~ 100kWh  </td>
+                <td> 101~200kWh </td>
+                <td> Over 200kWh </td>
+            </tr>
+        </thead>
+        <tbody>
+        <tr style="background-color: rgb(187, 225, 250);"> 
+         
+            <td id="level1">1.678</td>
+            <td id="level2">1.734</td>
+            <td id="level3">2.014</td>
+            <td id="level4">2.532</td>
+            
+        </tbody>
+        <tfoot>
+            <tr style="background-color: rgb(187, 225, 250);">
+                <td colspan="2">Nhập số kWh: </td> <td colspan="2"><input width="70%" type="text"  id="used"></td>
+            </tr>
+         
+          
+            <tr>
+               <td colspan="6" style="background-color: rgb(232, 240, 242);"> <button id="calculator"  style="height: 70px;width: 80px; background-color: rgb(162, 219, 250);border-radius: 20%;font: small-caps;"> Tính phí</button> <p id="fee"> </p></td>
+              
+            </tr>
+        </tfoot>
+    </table>
+</body>
+<script>
+    document.getElementsByTagName('button')[0].addEventListener("click",electricCalulate)
+    function electricCalulate(){
+        var level1 = parseFloat(document.getElementById('level1').innerText);
+        var level2 = parseFloat(document.getElementById('level2').innerText);
+        var level3 = parseFloat(document.getElementById('level3').innerText);
+        var level4 = parseFloat(document.getElementById('level4').innerText);
+        var elecUsed = parseFloat(document.getElementsByTagName('input')[0].value)
+        if (elecUsed > 0 && elecUsed < 50){
+            charge = elecUsed * level1
+        }
+        if (elecUsed > 51 && elecUsed < 100){
+            charge = elecUsed * level2
+        }
+        if (elecUsed >101 && elecUsed <200) {
+            charge = elecUsed * level3
+        }
+        if (elecUsed > 200){ 
+            charge = elecUsed * level4
+        }
+         alert(`Tiền điện hiện tại là ${charge}`)
+
+        
+    }
+</script>
+</html>

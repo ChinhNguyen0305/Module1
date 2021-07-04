@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pt bậc 2</title>
+</head>
+<body>
+    <p>Phương trình bậc 2 ax^2 + bx + c = 0 (a # 0)</p>
+</body>
+<script>
+    var a = parseInt(prompt('Nhập a:'));
+    var b = parseInt(prompt('Nhập b:'));
+    var c = parseInt(prompt('Nhập c:'));
+    var delta = b**2 - (4*a*c);
+   console.log(delta)
+    if(delta > 0){
+       document.write(`Phương trình có 2 nghiệm x1 = ${(-b + Math.sqrt(delta))/(2*a)} x2 = ${(-b - Math.sqrt(delta))/(2*a)}`)
+    } else if(delta == 0){
+        alert(`Phương trình có nghiệm kép x = ${(-b)/(2*a)}`)
+    } else {
+        alert('Phương trình vô nghiệm')
+    }
+</script>
+</html>

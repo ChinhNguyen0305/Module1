@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>Input Meter: <input type="text" name="" id="meter"></td>
+        </tr>
+        <tr>
+            <td>Result in feet: <input type="text" name="" id="feet"></td>
+        </tr>
+        <input type="button" name="" id="button"  value='converter'>
+    </table>
+</body>
+<script>
+    document.getElementById('button').addEventListener("click",converter)
+    function converter(){
+        var met = parseInt(document.getElementById('meter').value);
+        feet = met * 3.2808
+        document.getElementById('feet').value = feet
+        
+    }
+</script>
+</html>

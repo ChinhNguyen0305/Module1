@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>commisson</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>Charges : <input type="number"  id="charges"></td> 
+        </tr>
+        
+        <tr>
+            <td> Commisson: <p id="commisson"> </p> </td>
+        </tr>
+        <tr> <td><button onclick="commissonCalculator()"> calculate</button></tr></td>
+    </table>
+</body>
+<script>
+    function commissonCalculator(){
+    var charge = parseInt(document.getElementById('charges').value)
+    if (charge > 0 && charge <= 5000){
+        level = 10
+    } else if ( charge >5000 && charge <= 6000) {
+        level = 20
+    } else if (charge > 6000 && charge < 8000) {
+        level = 30 
+    } else {
+        level =  40
+    }
+    var commisson = (parseInt(document.getElementById('charges').value) * level/100) 
+    document.getElementsByTagName('p')[0].innerText = commisson
+    
+    }
+</script>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax</title>
+    <style>
+        table,td ,thead,th{
+            border: 2px solid purple ;
+            border-collapse: collapse;
+            align-content: center ;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table style="background-color: rgb(255, 169, 0);">
+        <caption style="background-color:rgb(255, 118, 0);"> <h3>Tax spreadsheet</h3></caption>
+        <thead>
+            <th>Mức lương</th>
+            <th>11.000.000 ~ 15.000.000</th>
+            <th>15.000.000 ~ 25.000.000</th>
+            <th>25.000.000 ~ 35.000.000</th>
+            <th>Over 35.000.000</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>% Thuế</td>
+                <td> 10%</td>
+                <td> 11%</td>
+                <td> 12%</td>
+                <td> 12.5%</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <td>Salary:</td>
+            <td><input style="height: 25px; border-radius: 15%;" type="number" id="salary"></td>
+            <td><button style="height: 35px; border-radius: 20%;"> Tax calculate</button></td>
+            <td colspan="2"><p></p></td>
+        </tfoot>
+    </table>
+</body>
+<script>    
+    document.getElementsByTagName('button')[0].addEventListener("click",taxCalculator)
+    function taxCalculator(){
+    let salary = parseFloat(document.getElementsByTagName('input')[0].value);
+        if (salary < 11000000){
+            alert ('Bạn sẽ không nộp thuế')
+        }
+        if (salary >= 11000000 && salary < 15000000){
+            tax = salary * 10 / 100
+        }
+        if (salary >= 15000000 && salary < 25000000){
+            tax = salary * 11 / 100
+        }
+        if (salary >= 25000000 && salary < 35000000){
+            tax = salary * 12 / 100
+        }
+        if (salary >35000000){
+            tax = salary * 12.5 / 100
+        }
+        document.getElementsByTagName('p')[0].innerHTML = `Mức thuế của bạn là ${tax}`
+            }
+              
+            
+        
+    
+</script>
+</html>

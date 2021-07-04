@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade</title>
+</head>
+<body>
+    <table>
+        <tr>
+            Bài kiểm tra : <input type="text" id="test">
+        </tr>
+        <tr>
+            Kiểm tra giữa kỳ: <input type="text" id="midTerm">
+        </tr>
+        <tr>
+            Kiểm tra cuối kỳ: <input type="text" id="finalExam">
+        </tr>
+        <tr> Average: <p id="average"></p>
+        </tr>
+        <tr>
+            Grade: <p id="grade"></p>
+        </tr>
+        <tr><button onclick="calculateAverage()">  Calculate  </button></tr>
+    </table>
+    <script>
+        function calculateAverage(){
+        var test = parseFloat(document.getElementById('test').value);
+        var midTerm =  parseFloat(document.getElementById('midTerm').value);
+        var finalExam =  parseFloat(document.getElementById('finalExam').value);
+        var average = (test + midTerm * 2 + finalExam *3)/6
+        document.getElementById('average').innerHTML = average
+        
+        if (average <0 && average >10){
+            if(average >=5){
+                if (average >= 6.5) {
+                     if (average >= 8){
+                         if (average >= 9) {
+                         alert('Xuất sắc')
+                         }else {
+                        alert('giỏi')
+
+                         }}else { 
+                        alert('khá')
+
+                          }}else {
+                        alert('trung bình')
+                         }} else {
+                        alert('yếu')
+                    }} else {
+                        alert('Điểm không hợp lệ')
+                    }
+                
+        } 
+    </script>
+</body>
+</html>

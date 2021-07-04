@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Triangle</title>
+</head>
+<body>
+   <table>
+    <tr>
+        <td>Cạnh thứ nhất: </td>
+        <td><input type="number" name="" id="firstEdge"></td>
+     </tr><tr>
+        <td>Cạnh thứ hai: </td>
+        <td><input type="number" name="" id="secondEdge"></td>
+     </tr><tr>
+        <td>Cạnh thứ ba: </td>
+        <td><input type="number" name="" id="thirdEdge"></td>
+     </tr>
+     <tr>
+         <td><input type="button" id="button" value="Check"></td>
+     </tr>
+       
+   </table>
+</body>
+<script>
+    document.getElementById('button').addEventListener("click", checkEdge)
+    function checkEdge(){
+    var a = parseInt(document.getElementsByTagName('input')[0].value);
+    var b = parseInt(document.getElementsByTagName('input')[1].value);
+    var c = parseInt(document.getElementsByTagName('input')[2].value);
+    if (a >0 && b > 0 && c > 0 && a + b > c && b + c > a && a + c > b){
+        alert(`a = ${a} b = ${b} c = ${c} là 3 cạnh của một tam giác `)
+    } else {
+        alert(`a = ${a} b = ${b} c = ${c} không phải là 3 cạnh của một tam giác `)
+
+    }
+
+    }
+</script>
+</html>
