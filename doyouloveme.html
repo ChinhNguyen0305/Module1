@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title> Do you love me?
+        </title>
+        <style>
+            table{
+                 width: 80%;
+            }
+            #yes{
+                padding: 50px;
+            }
+            #no{
+                width: 50px; height: 30px; left: 0px; top: 0px; position: relative;
+            }
+        </style>
+    </head>
+
+    <body>
+        <table>
+            <thead>
+                <th><h3>Do you love me ?</h3></th>
+            </thead>
+            <table>
+                <button id="yes">Yes</button>
+                <button id="no">No</button>
+            </table>
+        </table>
+    </body>
+    <script>
+        document.getElementsByTagName('button')[0].addEventListener("click",clickYes)
+        document.getElementsByTagName('button')[1].addEventListener("mouseover",runNo)
+        
+        function clickYes(){
+            document.getElementsByTagName('button')[0].innerText = `<3`
+        }
+        function runNo(){
+            var x =Math.round(Math.random()*window.innerWidth);
+            var y =Math.round(Math.random()*window.innerHeight);
+            document.getElementsByTagName('button')[1].style.left = `${x}px`
+            document.getElementsByTagName('button')[1].style.top = `${y}px`
+            
+        }
+    </script>
+</html>
