@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game doan so</title>
+    <style>
+        button {
+            position: absolute;
+            background-color: aquamarine;
+            border-radius: 15%;
+            height: 50px;
+            width: 50px;
+            top: 300px;
+            left: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <button> Chơi </button>
+</body>
+<script>
+    document.getElementsByTagName('button')[0].addEventListener('click', guessingGame)
+    function guessingGame() {
+        let min = parseInt(prompt('Enter your number from: '));
+        let max = parseInt(prompt('Enter your number to : '));
+        let number = Math.floor(Math.random() * (max - min + 1) + min);
+        for (let i = 0; i < 3; i++) {
+            let guess = parseInt((prompt(`Guess a number from ${min} to ${max}`)));
+            if (guess == number) {
+                alert('True');
+                break
+            } else {
+                alert(`wrong`);
+
+            }
+        }
+    }
+
+
+</script>
+
+</html>
