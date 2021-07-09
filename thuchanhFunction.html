@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>confirm</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function processConfirm(answer) {
+        let result = '';
+        if (answer) {
+            result = `OK, we'll play nice game together`
+        } else {
+            result = `we'll play together nexttime`
+        }
+        return result
+    }
+    let confirmAnswer = confirm(`Shall we play the game ?`);
+    console.log(confirmAnswer)
+    let theAnswer = processConfirm(confirmAnswer);
+    alert(theAnswer)
+</script>
+
+</html>
