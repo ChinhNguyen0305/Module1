@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // function isPrime(num) {
+    //     var flag = true
+    //     if (num < 2) {
+    //         alert(`${num} is not prime`)
+    //     } else if (num == 2) {
+    //         alert(`${num} is prime`)
+    //     } else {
+    //         for (let i = 2; i <= Math.sqrt(num); i++) {
+    //             if (num % i == 0) {
+    //                 flag = false;
+    //                 break;
+    //             }
+    //         } flag ? alert(`${num} is prime`) : alert(`${num} is not prime`)
+    //     }
+
+    // }
+
+    function isPrime(number) {
+        if (number < 2) {
+            return false;
+        }
+        for (let i = 2; i < Math.sqrt(number); i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true
+    }
+    let count = 0;
+    let array = [];
+    while (count < 1000) {
+        if (isPrime(count)) {
+            array.push(count);
+        }
+        count++;
+    }
+    for (let j = 0; j < array.length; j++) {
+        document.write(array[j] + ' ');
+    }
+</script>
+
+</html>
