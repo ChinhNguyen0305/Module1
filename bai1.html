@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        fieldset {
+            width: 30%;
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+<script>
+    // //bài 1
+    // function powerOf(number) {
+    //     return number ** 2
+    // }
+    // console.log(powerOf(2))
+
+    // //bài2:
+    // function squareOfCircle(r) {
+    //     return r ** 2 * 3.14
+    // }
+    // function premeterOfCircle(r) {
+    //     return r * 2 * 3.14
+    // }
+    // console.log(premeterOfCircle(20))
+    // console.log(squareOfCircle(20))
+
+    //Bài 3:
+    // function factorial(a, b) {
+    //     return a * b
+    // }
+    // var array = [];
+    // let N = parseInt([prompt('input your number: ')])
+    // for (i = 1; i <= N; i++) {
+    //     array.push(i)
+    // }
+    // console.log(array)
+    // console.log(array.reduce(factorial))
+
+    //way2 for of
+    // var N = parseInt(prompt('enter your number '))
+    // var array = []
+    // for (i = 1; i <= N; i++) {
+    //     array.push(i)
+    // }
+    // var factorial = 1;
+    // for (item of array) {
+    //     factorial *= item
+
+    // }
+    // console.log(factorial)
+
+    // //way3 forin
+    // var N = parseInt(prompt('enter your number '))
+    // var array = []
+    // for (i = 1; i <= N; i++) {
+    //     array.push(i)
+    // }
+    // var factorial = 1;
+    // for (i in array) {
+    //     factorial *= array[i]
+    // }
+    // console.log(factorial)
+
+    // //way 4 foreach
+    // var N = parseInt(prompt('enter your number '))
+    // var array = []
+    // for (i = 1; i <= N; i++) {
+    //     array.push(i)
+    // }
+    // var factorial = 1;
+    // array.forEach(function (value, index) {
+    //     factorial *= value
+    // })
+    // console.log(factorial)
+
+    //Bài 4:
+
+    // var num = prompt('input your number :');
+    // function isNumber(text) {
+    //     if (!isNaN(text)) {
+    //         return true
+    //     } return false
+    // }
+    // document.write(isNumber(num))
+
+    //Bài 5:
+    // let i = 0;
+    // let arr = [];
+    // while (i < 3) {
+    //     let N = parseFloat(prompt('Enter number :'))
+    //     arr[i] = N;
+    //     i++
+    // }
+    // console.log(arr)
+    // function min(a, b) {
+    //     if (a > b) {
+    //         return b
+    //     } else return a
+
+    // }
+    // alert(`the lowest number in three is ${arr.reduce(min)}`)
+
+    //Bài 6:
+    // var N = parseInt(prompt('input number'));
+    // function checkNegative(number) {
+    //     if (number == 0) {
+    //         alert('Là số 0')
+    //     } else if (number < 0) {
+    //         alert(`${number} là số âm`)
+    //     } else {
+    //         alert(`${number} là số dương`)
+    //     }
+    // }
+    // checkNegative(N)
+
+    // //Bài 7
+    // let a = prompt('input a');
+    // let b = prompt('input b');
+    // function swap(num1, num2) {
+    //     temp = num1;
+    //     num1 = num2;
+    //     num2 = temp;
+    //     return num1, num2
+    // }
+    // let c = 5
+    // let d = 10
+
+    // //Bài 8:
+    // var arr = [];
+    // var N = parseInt(prompt('input size : '));
+    // i = 0
+    // do {
+    //     arr.push(Math.floor(Math.random() * 21 + 10));
+    //     i++;
+    // } while (i < N)
+    // console.log(arr)
+
+    // function swapArr(array) {
+    //     newArr = []
+    //     for (let j = 0; j < array.length; j++) {
+    //         newArr.push(array[array.length - j - 1])
+    //     } return newArr
+    // }
+    // document.write(swapArr(arr))
+
+    //Bài 9:
+
+    var char = ["a", "b", "d", "c", "e", "f", "f", "l", "m", "s", "w", "o", "b"]
+    char.toString()
+    var pickAChar = prompt('input your character :')
+    var counter = 0
+    for (let i = 0; i < char.length; i++) {
+        if (char[i] == pickAChar) {
+            counter++
+        }
+    }
+    counter == 0 ? alert(`${pickAChar} is not in string`) : alert(`${pickAChar} is in the string with ${counter} times`)
+
+
+</script>
+
+</html>
