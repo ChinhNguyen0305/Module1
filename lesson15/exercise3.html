@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function generateArray(row, col, V) {
+        let arr = [];
+        for (let i = 0; i < row; i++) {
+            arrChild = [];
+            for (j = 0; j < col; j++) {
+                arrChild[j] = V
+            } arr[i] = arrChild
+        }
+        return arr
+    }
+    var V = +prompt('Input value: ')
+    var vertical = +prompt(`Enter array's colum`);
+    var horizontal = +prompt(`Enter array's row`);
+    let arrayOne = generateArray(vertical, horizontal, V)
+
+    console.log(arrayOne)
+
+    // function generateArray(row, col) {
+    //     let arr = [];
+    //     for (let i = 0; i < row; i++) {
+    //         arrChild = [];
+    //         for (j = 0; j < col; j++) {
+    //             arrChild[j] = Math.floor(Math.random() * 41 + 20)
+    //             if (arrChild[j] % 5 != 0) {
+    //                 arrChild[j] = ' '
+    //             }
+    //         } arr[i] = arrChild;
+    //     }
+    //     return arr
+    // }
+    // function drawArray(row, col) {
+    //     let table = '<table>';
+
+    // }
+
+    // var vertical = +prompt(`Enter array's colum`);
+    // var horizontal = +prompt(`Enter array's row`);
+    // let arrayOne = generateArray(horizontal, vertical)
+
+    // console.log(arrayOne)
+</script>
+
+</html>

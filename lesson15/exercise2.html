@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise</title>
+</head>
+
+<body>
+    <div> Matrix A
+    <p id="drawTable">Matrix A</p>
+    </div>
+    <div>Matrix B
+        <p id="drawTable2">Matrix B</p> 
+    </div>
+    <div> Sum of Matrix
+        <p>Sum of 2 matrix</p>
+    </div>
+
+</body>
+<script>
+    function generateArray(size) {
+        let arr = [];
+        for (let i = 0; i < size; i++) {
+            arrChild = [];
+            for (j = 0; j < size; j++) {
+                arrChild[j] = Math.floor(Math.random() * 31 + 10)
+            } arr[i] = arrChild
+        }
+        return arr
+    }
+    var size = +prompt(`Input first Matrix's size :`)
+    let arrayA = generateArray(size)
+    let arrayB = generateArray(size)
+    console.log(arrayA)
+    console.log(arrayB)
+
+    function sumMatrix(arr) {
+        let sum = 0
+        for (let i = 0; i < arr.length; i++) {
+            sum += arr[i].reduce(function (a, b) {
+                return a + b
+            })
+        } return sum
+    }
+    document.write(`Adding two Matrix ${sumMatrix(arrayA) + sumMatrix(arrayB)} <br>`)
+    function multipleMatrix(arr) {
+        let multiple = 1
+        for (let i = 0; i < arr.length; i++) {
+            multiple *= arr[i].reduce(function (a, b) {
+                return a * b
+            })
+        } return multiple
+    }
+    document.write(`Multiply two Matrix ${multipleMatrix(arrayA) * multipleMatrix(arrayB)}`)
+
+    let table = `<table border = "1" >`
+    for (i = 0; i < size; i++) {
+        table += `<tr>`;
+        for (j = 0; j < size; j++) {
+            table += `<td> ${arrayA[i][j]} </td>`
+        }
+        table += `</tr>`
+    }
+    table += '</table>'
+
+    let table2 = `<table border = "1" >`
+    for (i = 0; i < size; i++) {
+        table2 += `<tr>`;
+        for (j = 0; j < size; j++) {
+            table2 += `<td> ${arrayB[i][j]} </td>`
+        }
+        table2 += `</tr>`
+    }
+    table2 += '</table>'
+
+    let table3 = `<table border = "1" >`
+    for (i = 0; i < size; i++) {
+        table3 += `<tr>`;
+        for (j = 0; j < size; j++) {
+            table3 += `<td> ${arrayA[i][j] + arrayB[i][j]}</td>`
+        }
+        table3 += `</tr>`
+    }
+    table2 += '</table>'
+    document.getElementById('drawTable').innerHTML = table
+    document.getElementById('drawTable2').innerHTML = table2
+    document.getElementsByTagName('p')[2].innerHTML = table3
+
+</script>
+
+</html>

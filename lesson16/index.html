@@ -9,7 +9,43 @@
 </head>
 
 <body>
+    <input type="text" name="" id="height">
 
 </body>
+<script>
+    // document.getElementsByTagName('input')[0].addEventListener('input', addHeight)
+    let person = {
+        name: { first: 'Nguyen', last: 'Chinh' },
+        age: 32,
+        gender: 'male',
+        interests: ['music', 'skiing'],
+        bio: function () {
+            document.write(`I'm ${this.name['first']} I'm ${this.age} years old, I'm interested in ${this.interests}<br>`)
+        }
+    }
+    // document.write(`${person.name.first}<br>`)
+    // document.write(`${person[`age`]}<br>`)
+    // person.name.last = `Andrei`
+    // document.write(person.name.last + '<br>')
+    // person[`name`][`last`] = 'neigoi'
+    // document.write(person.name.last + '<br>')
+    // person.eye = `sharingan`
+    // document.write(`${person.eye}`)
+    // person.sout = function () {
+    //     alert(`${this.name.first} は　世界刃牙`)
+    // }
+    // person.sout()
+    person.bio()
+    // let myDataName = nameInput.value;
+    // let myDataValue = nameInput.value;
+    let myDataName = 'Tall';
+    
+    let myDataValue = 180
+    
+
+    person[myDataName] = myDataValue
+
+    document.write(person[`Tall`])
+</script>
 
 </html>

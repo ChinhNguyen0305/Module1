@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product controll</title>
+    <style>
+        #dsPhone {
+            width: 450px;
+            padding-top: 100px;
+
+        }
+
+        td {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <thead>
+                <th>Product</th>
+                <th> Price </th>
+                <th>Stock </th>
+                <th> </th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" id="phone"></td>
+                    <td><input type="text" id="price"></td>
+                    <td><input type="number" id="stock"></td>
+                    <td><button onclick="addItem()"> Add product </button></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button>Delete product</button></td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <hr width="100%^">
+                    </td>
+                </tr>
+            </tbody>
+
+            <table id="dsPhone" border="1px" style="border-collapse: collapse;">
+
+            </table>
+    </table>
+</body>
+<script>
+    let phoneList = [];
+    let productPrice = [];
+    let productStock = [];
+    reviewProduct()
+    function reviewProduct() {
+        let list = '';
+        list = `
+    <thead> 
+        <th> Product </th>
+        <th> Stock </th> 
+        <th> Price </th>
+        <th colspan = "5">modify</th>
+        
+    </thead>
+    `
+        for (let i = 0; i < phoneList.length; i++) {
+            list += `
+        <tr>
+            <td >${phoneList[i]}</td>
+            <td >${productStock[i]}</td>
+            <td> ${productPrice[i]}</td>
+            <td ><button> Edit</button></td>
+            <td ><button> Delete</button></td>
+        </tr>
+          `
+        }
+        document.getElementById('dsPhone').innerHTML = list
+    }
+
+
+    function addItem() {
+        let phone = document.getElementsByTagName('input')[0].value;
+        let price = document.getElementById('price').value;
+        let Stock = document.getElementById('stock').value;
+        phoneList.push(phone);
+        productPrice.push(price);
+        productStock.push(Stock)
+        console.log(phoneList);
+        console.log(price);
+        reviewProduct();
+    }
+
+
+</script>
+
+</html>

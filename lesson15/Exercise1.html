@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 1</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function generateArray(size, min = 10, max = 90) {
+        let arr = [];
+        for (let i = 0; i < size; i++) {
+            arrChild = [];
+            for (j = 0; j < size; j++) {
+                arrChild[j] = Math.floor(Math.random() * (max - min + 1) + min)
+            } arr[i] = arrChild
+        }
+        return arr
+    }
+    let size = +prompt(`enter number: `);
+    let min = +prompt(`Enter min:`);
+    let max = +prompt(`Enter Max :`);
+    let arrayA = generateArray(size, min, max);
+
+    document.write(`${arrayA} <br>`)
+    console.log(arrayA)
+    console.log(arrayA.length)
+    function sumEven(arg) {
+        var sum = 0;
+        for (let i = 0; i < arg.length; i++) {
+            for (let j = 0; j < arg[i].length; j++)
+                if (arg[i][j] % 2 == 0) {
+                    sum += arg[i][j]
+                }
+        } return sum
+    
+    }
+    document.write(`Sum of even ${sumEven(arrayA)} <br>`)
+    document.write(`<br>`)
+    function sumDiagonal(arg) {
+        let sumDiagonal = 0;
+        for (let i = 0; i < arg.length; i++) {
+            sumDiagonal += arg[i][i]
+        }
+        return sumDiagonal
+    }
+    document.write(`Sum Diagonal ${sumDiagonal(arrayA)}<br>`)
+    function sumSubDiagonal(arg) {
+        var sumSubDiagonal = 0;
+        for (let i = arg.length - 1; i >= 0; i--) {
+            sumSubDiagonal += arg[i][arg.length - 1 - i]
+        } return sumSubDiagonal;
+    }
+    document.write(`Sum of Sub Diagonal ${sumSubDiagonal(arrayA)} <br>`);
+
+    function sumOfBorder(arr) {
+        function sumTopLine(arr) {
+            let sumtop = 0;
+            for (j = 0; j < arr.length; j++) {
+                sumtop += arr[0][j]
+            } return sumtop
+        }
+        document.write(`Sum  of top line: ${sumTopLine(arrayA)} <br>`);
+        function sumBotLine(arr) {
+            let sumBot = 0;
+            for (j = 0; j < arr.length; j++) {
+                sumBot += arr[arr.length - 1][j]
+            } return sumBot
+        }
+        document.write(`Sum  of bot line: ${sumBotLine(arrayA)} <br>`)
+
+        function sumLeftLine(arr) {
+            let sumleft = 0;
+            for (let l = 1; l < arr.length - 1; l++) {
+                sumleft += arr[l][0]
+            } return sumleft
+
+        }
+        document.write(`Sum  of left line: ${sumLeftLine(arrayA)} <br>`)
+        function sumRightLine(arr) {
+            let sumRight = 0;
+            for (let l = 1; l < arr.length - 1; l++) {
+                sumRight += arr[l][arr.length - 1];
+            } return sumRight;
+
+        }
+        document.write(`Sum  of right line: ${sumRightLine(arrayA)}<br>`);
+        return sumBotLine(arr) + sumTopLine(arr) + sumRightLine(arr) + sumLeftLine(arr)
+    }
+    document.write(`Sum Of Border ${sumOfBorder(arrayA)}<br>`)
+
+
+    function displayMatrix(Matrix) {
+        for (r = 0; r < Matrix.length; r++) {
+            document.write(`${Matrix[r]} <br>`)
+        }
+    }
+    document.write('<br>')
+    displayMatrix(arrayA);
+    function displayByTriangle(arr) {
+        let newArr = [];
+        for (let r = 0; r < arr.length; r++) {
+            arrChild = [];
+            for (let c = 0; c < r + 1; c++) {
+                arrChild.push(arr[r][c])
+            } newArr[r] = arrChild;
+            document.write(`${newArr[r]} <br>`)
+        }
+    }
+    displayByTriangle(arrayA)
+    document.write(`<br>`)
+
+    function displayByTriangleTop(arr) {
+        let newArr = [];
+        for (let r = 0; r < arr.length; r++) {
+            arrChild = [];
+            for (let c = 0; c < arr.length - r; c++) {
+                arrChild.push(arr[r][c])
+            } newArr[r] = arrChild;
+            document.write(`${newArr[r]} <br>`)
+        }
+    }
+    displayByTriangleTop(arrayA)
+
+
+
+</script>
+
+</html>

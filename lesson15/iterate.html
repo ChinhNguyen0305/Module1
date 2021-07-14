@@ -12,16 +12,10 @@
 
 </body>
 <script>
-    function addNumbers() {
-        secondNum = 8;
-        firstNum = 4;
-        result = firstNum + secondNum;
-        return result;
-    }
-    result = 0;
-    // alert(result)
-    result = addNumbers();
-    alert(result)
+    let arr = [1, 2, 4, 5, 6, [1, 2, 3]];
+    document.write(arr[5].reduce(function (a, b) {
+        return a + b
+    }))
 </script>
 
 </html>
