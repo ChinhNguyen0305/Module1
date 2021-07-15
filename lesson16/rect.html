@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    let Rect = function (width, height) {
+        this.width = width;
+        this.height = height;
+
+    }
+    Rect.prototype.getSquare = function () {
+        return this.height * this.width;
+    }
+    Rect.prototype.getPerimeter = function () {
+        return (this.width + this.height) * 2
+    }
+    let myRectangle = new Rect(5, 10);
+    myRectangle.getDiagonal = function () {
+        return Math.sqrt(this.height ** 2 + this.width ** 2)
+    }
+</script>
+
+</html>

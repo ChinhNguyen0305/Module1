@@ -12,32 +12,19 @@
 
 </body>
 <script>
-    // function Circle(radius) {
-    //     this.radius = radius;
-    // }
-    // Circle.prototype.calculatePerimeter = function () {
-    //     return this.radius * 2 * Math.PI;
-    // }
-    // Circle.prototype.calculateSquare = function() {
-    //     return this.radius**2 * Math.PI;
-    // }
-    // let myCircle1 = new Circle(5);
+    function Circle(radius) {
+        this.radius = radius;
+    }
+    Circle.prototype.calculatePerimeter = function () {
+        return this.radius * 2 * Math.PI;
+    }
+    Circle.prototype.calculateSquare = function () {
+        return this.radius ** 2 * Math.PI;
+    }
+    let myCircle1 = new Circle(5);
+    alert(` My circle's perimeter is ${myCircle1.calculatePerimeter()}, square is ${myCircle1.calculateSquare()}`)
 
-    let Rect = function(width,height) {
-        this.width = width;
-        this.height = height;
 
-    }
-    Rect.prototype.getSquare = function (){
-        return this.height * this.width;
-    }
-    Rect.prototype.getPerimeter = function() {
-        return (this.width+this.height)*2
-    }
-    let myRectangle = new Rect(5,10);
-    myRectangle.getDiagonal = function(){
-        return Math.sqrt(this.height**2 + this.width**2)
-    }
 
 
 
