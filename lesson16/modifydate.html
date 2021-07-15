@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function mydate(day, month, year) {
+        this.day = day;
+        this.month = month;
+        this.year = year;
+        this.getday = function () {
+            return this.day;
+        };
+        this.getmonth = function () {
+            return this.month;
+        };
+        this.getyear = function () {
+            return this.year;
+        }
+    }
+    mydate.prototype.modifydate = function (newday) {
+        this.day = newday
+    }
+    let birthday = new mydate(03, 05, 1997);
+    document.write(birthday.getday());
+    birthday.modifydate(07);
+    mydate.prototype.modifyMonth = function newMonth(newMonth) {
+        this.month = newMonth;
+    }
+    var day = birthday.getday();
+    var month = birthday.getmonth();
+    var year = birthday.getyear();
+    alert(`Your birth day is ${day}/${month}/${year}`)
+</script>
+
+</html>

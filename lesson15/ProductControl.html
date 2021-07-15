@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product controll</title>
+    <script src="bootstrap.js"> </script>
+    <link rel="stylesheet" href="bootstrap.css">
     <style>
         #dsPhone {
             width: 450px;
@@ -24,7 +26,7 @@
         <tr>
             <thead>
                 <th>Product</th>
-                <th> Price </th>
+                <th>Price </th>
                 <th>Stock </th>
                 <th> </th>
             </thead>
@@ -33,13 +35,13 @@
                     <td><input type="text" id="phone"></td>
                     <td><input type="text" id="price"></td>
                     <td><input type="number" id="stock"></td>
-                    <td><button onclick="addItem()"> Add product </button></td>
+                    <td><button onclick="addItem()" class="btn btn-success"> Add product </button></td>
                 </tr>
                 <tr>
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><button>Delete product</button></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td colspan="3">
@@ -65,7 +67,7 @@
         <th> Product </th>
         <th> Stock </th> 
         <th> Price </th>
-        <th colspan = "5">modify</th>
+        <th colspan = "5">Modify</th>
         
     </thead>
     `
@@ -75,8 +77,8 @@
             <td >${phoneList[i]}</td>
             <td >${productStock[i]}</td>
             <td> ${productPrice[i]}</td>
-            <td ><button> Edit</button></td>
-            <td ><button> Delete</button></td>
+            <td ><button class="btn btn-warning"> Edit</button></td>
+            <td ><button class ="btn btn-danger"> Delete</button></td>
         </tr>
           `
         }
@@ -94,6 +96,9 @@
         console.log(phoneList);
         console.log(price);
         reviewProduct();
+    }
+    function editItem() {
+        
     }
 
 
