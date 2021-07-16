@@ -18,15 +18,40 @@
         this.y = y;
         this.radius = radius;
     }
-    var drawArea = document.getElementById("myCanvas");
-    var straightLine = drawArea.getContext("2d");
-    straightLine.moveTo(400,100);
-    straightLine.lineTo(500,100);
-    straightLine.stroke();
-    var circle = drawArea.getContext("2d");
-    circle.beginPath();
-    circle.arc(400,200,40,0,2*Math.PI);
-    circle.fill()
+    function getRandomHex() {
+        return Math.floor(Math.random() * 255);
+    }
+
+    function getRandomColor() {
+        var red = getRandomHex();
+        var green = getRandomHex();
+        var blue = getRandomHex();
+        var opacity = Math.random()
+        return `rgba(${red},${green},${blue},${opacity})`
+    }
+    
+    
+    function createCircle() {
+        // let color = getRandomColor()
+        var ctx = document.getElementById('myCanvas').getContext('2d');
+        let randomRadius = Math.floor(Math.random() * 80);
+        let randomX = Math.floor(Math.random() * window.innerWidth);
+        let randomY = Math.floor(Math.random() * window.innerHeight);
+        let color1 = getRandomColor();
+        var circle = new Circle(randomX, randomY, randomRadius);
+        ctx.beginPath();
+        ctx.arc(circle.x, circle.y, circle.radius, 0, 2 * Math.PI);
+        ctx.fillStyle = color1;
+        ctx.fill();
+    }
+    
+    function createMultipleCircle(number) {
+        for (let i =0; i <number; i++) {
+            createCircle()
+        }
+    }
+    let number = parseInt(prompt(`Input number of circles: `))
+    createMultipleCircle(25)
 
 </script>
 
