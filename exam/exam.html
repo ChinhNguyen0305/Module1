@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // function generateArray(size, min = 10, max = 90) {
+    //     let array = [];
+    //     for (let i = 0; i < size; i++) {
+    //         array[i] = Math.floor(Math.random() * (max - min + 1) + min);
+    //     } return array
+    // }
+    // let size = +prompt(`Enter array's size : `);
+    // let min = +prompt(`Enter array's min : `);
+    // let max = +prompt(`Enter array's max : `);
+    // let arrayA = generateArray(size, min, max)
+
+    // function printArray(arr) {
+    //     document.write(arr.join('-'))
+    // }
+    // document.write(`Array with join '-'<br>`)
+    // printArray(arrayA);
+    // document.write("<br>")
+    // document.write(`<-------------> <br>`)
+
+    // function isPrime(num) {
+    //     if (num < 2)
+    //         return false;
+    //     else {
+    //         for (i = 2; i <= Math.sqrt(num); i++) {
+    //             if (num % i == 0) {
+    //                 return false;
+    //             }
+    //         } return true;
+    //     }
+    // }
+
+
+    // function printPrime(arr) {
+    //     var primeArray = [];
+    //     for (value of arr) {
+    //         if (isPrime(value)) {
+    //             primeArray.push(value);
+    //         }
+    //     } document.write(primeArray)
+    // }
+    // printPrime(arrayA);
+    // document.write('<br>')
+
+    // function sumPrime(arr) {
+    //     let sum = 0;
+    //     for (value of arr) {
+    //         if (isPrime(value)) {
+    //             sum += value;
+    //         }
+    //     } return sum;
+    // }
+    // document.write(sumPrime(arrayA));
+
+    let size = +prompt('Enter size')
+    function main(size) {
+        let arr = [];
+        if (size <= 0) {
+            alert('invalid');
+        } else {
+            for (let i = 0; i < size; i++) {
+                arr.push(Math.floor(Math.random() * 81 + 10))
+            }
+        }document.write(arr)
+    }
+    let arrayZ = main(size);
+
+</script>
+
+</html>

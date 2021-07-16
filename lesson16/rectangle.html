@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rectangle</title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="400" height="200"> </canvas>
+</body>
+<script>
+    class Rectangle {
+        constructor(height, width,) {
+            this.height = height;
+            this.width = width;
+            this.calculateSquare = function () {
+                return this.height * this.width;
+            };
+            this.caculatePerimeter = function () {
+                return (this.height + this.width) * 2
+            };
+        }
+    }
+    let height = +prompt('Enter height: ');
+    let width = +prompt('Enter width: ')
+    let myRect = new Rectangle(height, width);
+    var Area = document.getElementById('myCanvas');
+    var drawRect = Area.getContext('2d');
+    drawRect.beginPath();
+    drawRect.rect(20, 20, myRect.width, myRect.height);
+    drawRect.stroke();
+
+
+</script>
+
+</html>

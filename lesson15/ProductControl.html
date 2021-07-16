@@ -56,6 +56,7 @@
     </table>
 </body>
 <script>
+    
     let phoneList = [];
     let productPrice = [];
     let productStock = [];
@@ -78,7 +79,7 @@
             <td >${productStock[i]}</td>
             <td> ${productPrice[i]}</td>
             <td ><button class="btn btn-warning"> Edit</button></td>
-            <td ><button class ="btn btn-danger"> Delete</button></td>
+            <td ><button class ="btn btn-danger" onclick="deletetItem()"> Delete</button></td>
         </tr>
           `
         }
@@ -97,8 +98,8 @@
         console.log(price);
         reviewProduct();
     }
-    function editItem() {
-        
+    function deletetItem() { 
+        alert('Hello') 
     }
 
 

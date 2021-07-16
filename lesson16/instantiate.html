@@ -31,26 +31,57 @@
     // alert(Iphone10.getinfo())
     // document.write(Iphone10.greeting())
 
-    function Apple(name, type, color) {
-        this.name = name;
-        this.type = type;
-        this.color = color
-        this.getinfo = getAppleInfo;
-        this.greeting = greetCustomer;
-    }
-    function getAppleInfo() {
-        return `${this.type} ${this.color}`
-    }
-    function greetCustomer() {
-        return `${this.name} 'll bring you new point of view!`
-    }
-    let Iphone10 = new Apple('Iphone10', 'Macintosh', 'reddish');
+    // function Apple(name, type, color) {
+    //     this.name = name;
+    //     this.type = type;
+    //     this.color = color
+    //     this.getinfo = getAppleInfo;
+    //     this.greeting = greetCustomer;
+    //     this.setIcloud = function (password) {
+    //         this.password = password
 
-    console.log(Iphone10)
-    document.write(Iphone10.greeting())
-    alert(Iphone10.getinfo())
-    Iphone10.Origin='USA'
-    document.write(Iphone10.Origin)
+    //     }
+    //     this.getPassword = function () {
+    //         return `*******${this.password.substring(7, this.password.length )}`
+    //     }
+    //     this.getcolor = function() {
+    //         return this.color
+    //     }
+    // }
+    // function getAppleInfo() {
+    //     return `${this.type} ${this.color}`
+    // }
+    // function greetCustomer() {
+    //     return `${this.name} 'll bring you new point of view!`
+    // }
+    // let Iphone10 = new Apple('Iphone10', 'Macintosh', 'reddish');
+
+    // console.log(Iphone10)
+    // document.write(Iphone10.greeting())
+    // // alert(Iphone10.getinfo())
+    // Iphone10.Origin = 'USA'
+    // document.write(Iphone10.Origin)
+    // Iphone10.setIcloud('Sunday123@yahoo.com');
+
+    class Apple {
+        constructor() {
+            this.name;
+            this.manufactor;
+            this.color;
+            this.setName = function (setName) {
+                this.name = setName;
+            }
+            this.setManufactor = function (manufactor) {
+                this.manufactor = manufactor
+            }
+            this.getName = function (){
+                return `***${this.name.substring(2,this.name.length)}`
+            }
+        }
+    }
+
+    let IphoneX = new Apple();
+    IphoneX.setName('IphoneX');
 
 </script>
 

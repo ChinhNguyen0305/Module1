@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circle 2</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    class Laptop {
+        constructor(name, manufactor) {
+            this.name = name;
+            this.manufactor = manufactor;
+        }
+        start() {
+            alert(`${this.name} is starting`)
+        }
+        origin() {
+            alert(`Manufactor: ${this.manufactor}`)
+        }
+        getname() {
+            return this.name
+        }
+        modifyName(newName) {
+            this.name = newName
+        }
+
+    }
+    let asusRock = new Laptop('AsusRock', 'Acer');
+    let Zerphyr = new Laptop(`Asus Tuf`, `Acer`)
+    document.write(Zerphyr.getname());
+    document.write(`<br>`)
+    // asusRock.start();
+    // asusRock.origin();
+    // Zerphyr.start();
+    Zerphyr.modifyName('AsusThinkPad');
+    document.write(Zerphyr.getname())
+   
+</script>
+
+</html>

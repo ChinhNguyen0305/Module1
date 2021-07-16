@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <canvas id="myCanvas" width="1368px" height="768px" style="border:1px solid #d3d3d3;"></canvas>
+</head>
+
+<body>
+
+</body>
+<script>
+    function Circle(x, y, radius) {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+    }
+    var drawArea = document.getElementById("myCanvas");
+    var straightLine = drawArea.getContext("2d");
+    straightLine.moveTo(400,100);
+    straightLine.lineTo(500,100);
+    straightLine.stroke();
+    var circle = drawArea.getContext("2d");
+    circle.beginPath();
+    circle.arc(400,200,40,0,2*Math.PI);
+    circle.fill()
+
+</script>
+
+</html>
