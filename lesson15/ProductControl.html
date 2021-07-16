@@ -56,7 +56,7 @@
     </table>
 </body>
 <script>
-    
+
     let phoneList = [];
     let productPrice = [];
     let productStock = [];
@@ -78,8 +78,8 @@
             <td >${phoneList[i]}</td>
             <td >${productStock[i]}</td>
             <td> ${productPrice[i]}</td>
-            <td ><button class="btn btn-warning"> Edit</button></td>
-            <td ><button class ="btn btn-danger" onclick="deletetItem()"> Delete</button></td>
+            <td ><button class="btn btn-warning" onclick="editItem(${i})"> Edit</button></td>
+            <td ><button class ="btn btn-danger" onclick="deletetItem(${i})"> Delete</button></td>
         </tr>
           `
         }
@@ -97,9 +97,22 @@
         console.log(phoneList);
         console.log(price);
         reviewProduct();
+    };
+    function deletetItem(index) {
+        phoneList.splice(index, 2)
+        productStock.splice(index, 2)
+        productPrice.splice(index, 2)
+        reviewProduct();
     }
-    function deletetItem() { 
-        alert('Hello') 
+    function editItem(index) {
+        var newName = prompt('Input new Name');
+        var newStock = prompt('Input new Stock:');
+        var newPrice = prompt('Input new Price:');
+        phoneList[index] = newName;
+        productStock[index] = newStock;
+        productPrice[index] = newPrice;
+        reviewProduct();
+
     }
 
 
