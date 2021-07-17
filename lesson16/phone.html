@@ -1,31 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+
 </body>
 <script>
-    class MobilePhone  {
-        constructor(batCap) {
+    class Mobile {
+        constructor(batCap, Boolean) {
             this.batCap = batCap;
-            this.textMess =  function (message) {
+            this.status = Boolean;
+            this.textMess = function (message) {
                 return message;
-            }
-            this.reciveMess = function (){
-                
-            }
-        };
-    }
-        
-    
-    let iPhoneX = new MobilePhone(100);
-    
+            };
+            this.uneadMassage = '';
+            this.getMessage = function () {
+                return this.unreadMassage;
+            };
+            this.sentMessage = [];
+            this.sendMessage = function (message, mobile) {
+                mobile.unreadMassage = message;
+                this.sentMessage.push(message)
+            };
+            this.decreseaBattery = function () {
+                if (this.status) {
+                    this.batCap--
+                }
+            };
+            this.turnOn = function () {
+                this.status = true
+                setInterval(this.decreseaBattery(), 1000);
 
-    
+            }
+            this.charge = function () {
+                if (this.batCap < 100) {
+                    this.batCap++
+                }
+            }
+        }
+    }
+
+
+
+    let iPhoneX = new Mobile(100, false);
+    let Nokia = new Mobile(100, false);
+    iPhoneX.sendMessage('hello Nokia', Nokia);
+    Nokia.sendMessage('Alo Ip', iPhoneX);
+
+
+
 </script>
+
 </html>
