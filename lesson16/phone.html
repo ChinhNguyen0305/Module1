@@ -22,11 +22,14 @@
             this.uneadMassage = '';
             this.getMessage = function () {
                 return this.unreadMassage;
+                this.decreseaBattery()
             };
             this.sentMessage = [];
+            this.inbox = [];
             this.sendMessage = function (message, mobile) {
-                mobile.unreadMassage = message;
-                this.sentMessage.push(message)
+                mobile.inbox.push(message);
+                this.sentMessage.push(message);
+                this.decreseaBattery();
             };
             this.decreseaBattery = function () {
                 if (this.status) {
@@ -43,6 +46,12 @@
                     this.batCap++
                 }
             }
+            this.deleteMessage = function () {
+                this.inbox = [];
+                this.decreseaBattery()
+
+            }
+            
         }
     }
 
@@ -50,8 +59,8 @@
 
     let iPhoneX = new Mobile(100, false);
     let Nokia = new Mobile(100, false);
-    iPhoneX.sendMessage('hello Nokia', Nokia);
-    Nokia.sendMessage('Alo Ip', iPhoneX);
+    // iPhoneX.sendMessage('hello Nokia', Nokia);
+    // Nokia.sendMessage('Alo Ip', iPhoneX);
 
 
 

@@ -1,0 +1,15 @@
+table{
+    border: solid;
+    border-width: 10px 20px 30px 40px ;
+    color: red;
+  }
+caption{
+  color:darkcyan;
+  font-weight: bolder;
+  border: 1px solid #000;
+}
+a{
+  text-decoration: none;
+  text-transform: uppercase;
+}
+/* this is comment */

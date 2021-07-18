@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flash Lamp</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    class Battery {
+        constructor() {
+            this.setEnergy = function (energy) {
+                this.energy = energy;
+            }
+            this.getEnergy = function () {
+                return this.energy;
+            }
+            this.decreaseEnergy = function () {
+                if (this.energy > 0) {
+                    this.energy--;
+
+                }
+            }
+        }
+    };
+    class FlashLamp {
+        constructor() {
+            this.setBattery = function (battery) {
+                this.battery = battery;
+            }
+            this.getBatteryInfo = function () {
+                return this.battery.energy;
+            }
+            this.light = function () {
+                if (this.status) {
+                    alert('Lighting');
+                } else {
+                    alert('Not lighting');
+                }
+            }
+            this.turnOn = function () {
+                this.status = true;
+            }
+            this.turnOff = function () {
+                this.status = false;
+            }
+        }
+    };
+    let battery1 = new Battery();
+    battery1.setEnergy(10);
+
+    let Flash = new FlashLamp();
+    Flash.setBattery(battery1);
+    document.write(`Battery.info: ${Flash.getBatteryInfo()} <br>`)
+    document.write(`Turn on <br>`);
+    Flash.turnOn();
+    Flash.light();
+    Flash.turnOff();
+    Flash.light();
+    document.write(`Battery info : ${Flash.getBatteryInfo()} <br>`)
+
+
+
+
+</script>
+
+</html>

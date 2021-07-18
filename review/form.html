@@ -1,0 +1,147 @@
+<html>
+    <head>
+        <title>Form</title>
+    </head>
+    <body>
+        <form action="" method="GET">
+            <table>
+                <tr>
+                    <td colspan="2">
+                        <h1 id="employee_info">Thông Tin Nhân Viên</h1>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Họ và Tên</td>
+                    <td>
+                        <input type="text">
+                        <input type="hidden">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tìm kiếm</td>
+                    <td>
+                        <input type="Search">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Quê quán</td>
+                    <td>
+                        <select name="" id="">
+                            <option value="1">TT Huế</option>
+                            <option value="2">Quảng Trị</option>
+                            <option value="3">Quảng Bình</option>
+                            <option value="4">Đà Nẵng</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Giới thiệu bản thân</td>
+                    <td>
+                        <textarea name="" id="" cols="30" rows="10"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Số điện thoại</td>
+                    <td>
+                        <input type="tel">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Mật khẩu</td>
+                    <td>
+                        <input type="password" oninput="document.getElementsByClassName('show_pw')[0].value = this.value">
+                        <input type="hidden" class="show_pw">
+                        <button onclick="document.getElementsByTagName('input')[4].type = 'text'">Show</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Ảnh đại diện</td>
+                    <td>
+                        <input type="image" src="resource/Tony.jpg">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Giới tính</td>
+                    <td>
+                        <input checked type="radio" name="gioi_tinh"> Nam
+                        <input type="radio" name="gioi_tinh"> Nữ
+                    </td>
+                </tr>
+                <tr>
+                    <td>Phạm vi</td>
+                    <td>
+                        <input type="range" min="14" max="25"
+                        oninput="document.getElementById('employee_info').style.fontSize = this.value;"
+                        >
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>
+                        <input type="email">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tải file</td>
+                    <td>
+                        <input type="file" accept="image/*">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sở thích</td>
+                    <td>
+                        <input type="checkbox" checked> Đá banh
+                        <input type="checkbox"> Bóng chuyền
+                        <input type="checkbox"> Cầu Lông
+                        <input type="checkbox"> Nhậu
+                    </td>
+                </tr>
+                <tr>
+                    <td>Màu yêu thích</td>
+                    <td>
+                        <input type="color" oninput="document.getElementsByTagName('body')[0].style.backgroundColor = this.value;">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Ngày sinh</td>
+                    <td>
+                        <input type="date" min="2021-01-01" max="2021-12-31">
+                        <input type="time">
+                        <br>
+                        <input type="datetime-local" onchange="window.alert(this.value)">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tháng sinh</td>
+                    <td>
+                        <input type="month">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tuần</td>
+                    <td>
+                        <input type="week" oninput="window.alert(this.value)">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Number</td>
+                    <td>
+                        <input type="number">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Website</td>
+                    <td>
+                        <input type="url" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="Đăng ký">
+                        <input type="reset" value="Hủy">
+                    </td>
+                </tr>
+            </table>
+        </form>        
+    </body>
+</html>
