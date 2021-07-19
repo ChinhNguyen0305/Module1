@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="vacham" height="500" width="700" style="background: black;"></canvas>
+</body>
+</html>
+<script>
+    var _canvas_ball = document.getElementById("vacham");
+    var _ball = _canvas_ball.getContext("2d");
+    var _X_ball = 20;
+    var _y_ball = 20;
+    var _radius = 20;
+    var speed = 5;
+    function drawBall(){
+    _ball.beginPath();
+    _ball.fillStyle = 'red';
+    _ball.arc(_X_ball,_y_ball,_radius,0,2*Math.PI);
+    _ball.fill();
+    }
+    var _canvas_rect = document.getElementById("vacham");
+    var _rect = _canvas_rect.getContext('2d');
+    var x_rect = 300;
+    var y_rect = 400;
+    var width_rect = 100;
+    var height_rect = 10;
+    function drawRect(){
+     _rect.beginPath();
+     _rect.fillStyle = 'green';
+     _rect.fillRect(x_rect,y_rect,width_rect, height_rect);
+    }
+    setInterval(function(){
+        _ball.clearRect(0,0,vacham.width,vacham.height);
+        if(_X_ball == x_rect){
+            _X_ball= - speed
+        }
+        if(_y_ball ==y_rect){
+           _y_ball =- speed
+        }
+        drawBall();
+        drawRect()
+        _X_ball+=speed;
+        _y_ball +=speed;
+    },20)
+</script>

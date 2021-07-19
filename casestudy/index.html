@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="vacham" height="500" width="700" style="background: rgb(120, 122, 145);"></canvas>
+    <button onclick="moveLeft()">moveLeft</button>
+    <button onclick="moveRight()">moveRight</button>
+</body>
+
+</html>
+<script>
+    window.addEventListener('keydown', controllBar);
+    const step = 10;
+    var canvasBall = document.getElementById("vacham");
+    var ball = canvasBall.getContext("2d");
+    var x_ball = 20;
+    var y_ball = 20;
+    var radius = 20;
+    const speed = 5;
+    function drawBall() {
+        ball.beginPath();
+        ball.fillStyle = 'red';
+        ball.arc(x_ball, y_ball, radius, 0, 2 * Math.PI);
+        ball.fill();
+    }
+    var canvasRect = document.getElementById("vacham");
+    var rect = canvasRect.getContext('2d');
+    var x_rect = 330;
+    var y_rect = 490;
+    var width_rect = 100;
+    var height_rect = 10;
+    function drawRect() {
+        rect.beginPath();
+        rect.fillStyle = 'green';
+        rect.fillRect(x_rect, y_rect, width_rect, height_rect);
+    }
+
+    function moveLeft() {
+        x_rect -= step;
+
+    }
+    function moveRight() {
+        x_rect += step;
+    }
+    function controllBar(evt) {
+        switch (evt.keyCode) {
+            case 37:
+                moveLeft();
+                break;
+
+            case 39:
+                moveRight();
+                break;
+        }
+    }
+    setInterval(function () {
+        ball.clearRect(0, 0, vacham.width, vacham.height);
+        x_ball += speed;
+        y_ball += speed;
+        drawBall();
+        drawRect();
+        if (x_ball == canvasRect.width) {
+            x_ball -= speed;
+        }
+        if (y_ball == canvasRect.height) {
+            y_ball -= speed;
+        }
+       
+    }, 50)
+</script>
