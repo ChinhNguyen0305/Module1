@@ -9,16 +9,15 @@
 </head>
 
 <body>
-    <canvas id="vacham" height="500" width="700" style="background: rgb(120, 122, 145);"></canvas>
-    <button onclick="moveLeft()">moveLeft</button>
-    <button onclick="moveRight()">moveRight</button>
+    <canvas  id="collision" height="500" width="700" style="background-image: url(https://blogs.esa.int/space19plus/files/2019/03/nebula.jpg);background-size: contain;background-attachment: fixed;background-position: 0 -200;"></canvas>
+    
 </body>
 
 </html>
 <script>
     window.addEventListener('keydown', controllBar);
     const step = 10;
-    var canvasBall = document.getElementById("vacham");
+    var canvasBall = document.getElementById("collision");
     var ball = canvasBall.getContext("2d");
     var x_ball = 20;
     var y_ball = 20;
@@ -26,11 +25,11 @@
     const speed = 5;
     function drawBall() {
         ball.beginPath();
-        ball.fillStyle = 'red';
+        ball.fillStyle = 'rgb(113, 239, 163)';
         ball.arc(x_ball, y_ball, radius, 0, 2 * Math.PI);
         ball.fill();
     }
-    var canvasRect = document.getElementById("vacham");
+    var canvasRect = document.getElementById("collision");
     var rect = canvasRect.getContext('2d');
     var x_rect = 330;
     var y_rect = 490;
@@ -38,8 +37,9 @@
     var height_rect = 10;
     function drawRect() {
         rect.beginPath();
-        rect.fillStyle = 'green';
+        rect.fillStyle = 'rgb(84, 67, 107)'
         rect.fillRect(x_rect, y_rect, width_rect, height_rect);
+        
     }
 
     function moveLeft() {
@@ -60,18 +60,18 @@
                 break;
         }
     }
-    setInterval(function () {
-        ball.clearRect(0, 0, vacham.width, vacham.height);
+    setInterval(function () { 
+        ball.clearRect(0, 0, collision.width, collision.height);
         x_ball += speed;
         y_ball += speed;
-        drawBall();
-        drawRect();
         if (x_ball == canvasRect.width) {
-            x_ball -= speed;
+            x_ball =- speed;
         }
         if (y_ball == canvasRect.height) {
-            y_ball -= speed;
+            y_ball = -speed;
         }
-       
+        drawBall();
+        drawRect();
+      
     }, 50)
 </script>

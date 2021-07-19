@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eva</title>
+</head>
+<body>
+    
+</body>
+<script>
+    class Apple {
+        constructor (weight) {
+            this.weight = weight;
+        }
+        isEmpty() {
+            return Boolean;
+        }
+        getWeight() {
+            return this.weight;
+        }
+        decrease () {
+            this.weight --;
+        }
+    }
+    class Human {
+        constructor (name,gender,weight){
+            this.name = name;
+            this.gender = gender;
+            this.weight = weight;
+        }
+        talk (greeting) {
+            console.log(`${this.name} said ${greeting}`)
+        }
+        eat (food) {
+            if (food.weight > 0){
+                this.weight ++;
+                food.weight--;
+            }else {
+                alert(`It's already empty !`)
+            }
+        }
+        checkFoodWeight(food) {
+            return `${food} has ${food.weight} times left`
+        }
+        getName() {
+            return this.name;
+        }
+        getGender() {
+            return this.gender;
+        }
+        getWeight() {
+            return this.weight;
+        }
+    }
+    let Adam = new Human('Adam','Male',55);
+    let Eva = new Human('Eva','Female',42);
+    let apple = new Apple(10);
+</script>
+</html>

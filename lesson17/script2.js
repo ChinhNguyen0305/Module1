@@ -1,4 +1,4 @@
-const speed = 20;
+const speed = 40;
 class hero {
     constructor(img, top, left, size) {
         this.img = img;
@@ -25,7 +25,7 @@ class hero {
 
 var doremon = new hero(`Doraemon.jpeg`, 0, 0, 100);
 function start() {
-    if (doremon.left < window.innerWidth - doremon.size && doremon.top < doremon.size) {
+    if (doremon.left < window.innerWidth - doremon.size && doremon.top < doremon.size/3) {
         doremon.moveRight();
     } else if (doremon.top < window.innerHeight - doremon.size && doremon.left >= window.innerWidth - doremon.size) {
         doremon.moveDown();
@@ -35,6 +35,6 @@ function start() {
         doremon.moveUp();
     }
     document.getElementById('game').innerHTML = doremon.getHeroElement();
-    setTimeout(start, 100)
+    setTimeout(start, 200)
 }
 start();
