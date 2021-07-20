@@ -70,25 +70,22 @@
 
         // so sánh toạ độ X của ball với thành canvas
         if (x_ball < radius || x_ball > canvasBall.width - radius) {
-            speedX = - speedX;
+            speedX = -speedX;
         }
         // so sánh toạ độ Y của ball với thành canvas
 
-        if (y_ball < radius) 
-        // || y_ball > canvasBall.height - radius) 
+        if (y_ball < radius || y_ball > canvasBall.height - radius)  
+        // 
         {
-            speedY = - speedY;
+            speedY = -speedY;
         }
         x_ball += speedX;
         y_ball += speedY;
-        if (y_ball > canvasBall.height-radius){
-            clearInterval(myvar);
-            alert(`Lost`)
-        }  
-        if(x_ball == x_rect && y_ball+10 == canvasBall.height-height_rect){
+
+        if(x_ball == x_rect && y_ball-radius == canvasBall.height-height_rect){
             speedX = - speedX;
         }
-        console.log(x_rect,y_ball-10,canvasBall.height-height_rect,height_rect)
+        
         drawBall();
         drawRect();
     }, 50)

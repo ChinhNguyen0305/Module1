@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomm-Jerym</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    class Mouse {
+        constructor(name, weight, speed, status) {
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+            this.status = true;
+        }
+        scream() {
+            document.write(`${this.name} goes chizzzzzz`);
+        }
+    }
+
+    class Cat {
+        constructor(name, weight, speed) {
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+            this.caughtMouse = ['nothing'];
+        }
+        scream() {
+            document.write(`${this.name} goes meowwww`)
+        }
+        catchMouse(mouse) {
+            if (this.caughtMouse.length > 1) {
+                alert(`Too many, can't hold`);
+            }
+            else if (this.speed >= mouse.speed) {
+                this.caughtMouse.push(mouse)
+            } else
+                alert(`${mouse.name} is too fast`)
+        }
+        eatMouse(mouse) {
+            if (mouse.status == true && this.caughtMouse[1] == mouse) {
+                mouse.status = false;
+                this.weight += mouse.weight;
+            } else if (this.caughtMouse[0] == 'nothing') {
+                alert(`not caught ${mouse} yet!!!`)
+            } else if (mouse.status == false) {
+                alert(`Can't eat, it's dead`)
+            }
+
+        }
+    }
+    class JetCat extends Cat {
+        constructor(name, weight, speed) {
+            super(name, weight, speed);
+            // this.caughtMouse = ['nothing'];
+
+        }
+        walk() {
+            alert(`${this.name} is walking around the garden`)
+        }
+        catchDoubleMouse(mouse) {
+            if (this.caughtMouse.length > 2) {
+                alert(`${this.name} 's strong, but nut that much!!`)
+            } else if (this.speed > mouse.speed) {
+                this.caughtMouse.push(mouse)
+                alert(`2EZ4 ${this.name}`)
+            } else
+                alert(`this thing is so fast!!`)
+        }
+    }
+
+    var tom = new Cat('Tom', 5, 50);
+    var billyTheBigFatCat = new Cat('Billy', 10, 10);
+    var sonicDx = new JetCat('SonicDx', 3, 1000);
+
+    var jerry = new Mouse('Jerry', 0.7, 15, true);
+    var speedySonic = new Mouse('Sonic', 1, 300, true);
+    var bigFatRat = new Mouse(`Butcher`,1.5,200,true)
+
+    sonicDx.catchDoubleMouse(jerry);
+    sonicDx.catchDoubleMouse(bigFatRat);
+
+
+
+</script>
+
+</html>

@@ -9,37 +9,31 @@
 </head>
 
 <body>
-
+    <img id="image" src="lightOff.png" width="200px" alt="">
+    <input type="button" id="switch" onclick="changeSwitch(this.value)" value="OFF">
+    <input type="button" id="connec" value="connecLamp">
 </body>
 <script>
     class SwitchButton {
         constructor() {
-            this.status = Boolean;
+            this.status = false;
+            this.lamp = false;
 
         };
-        setContainer(container) {
-            this.container = container;
-        }
-        connectToLamp() {
-            this.container.status= this.status 
+        connectToLamp(lamp) {
+            this.lamp = lamp;
         }
         switchOn() {
-            this.container.status = true;
-            this.container.work();
-
+            this.status = true;
         }
         switchOff() {
-            this.container.status = false;
-            this.container.work();
+            this.status = false;
         }
     };
     class Lamp {
         constructor() {
-            this.status = Boolean;
+            this.status = false;
         }
-        // setSwitch(obj) {
-        //     this.status = obj.status
-        // }
         work() {
             if (this.status == true) {
                 alert('Lighting')
@@ -47,9 +41,27 @@
                 alert('Not Lighting')
         }
     }
+    var switchOne = new SwitchButton();
 
-    var SwitchOne = new SwitchButton();
+    switchOne.connectToLamp(true)
+    
     var firstLamp = new Lamp();
+
+    if (switchOne.lamp) {
+        document.getElementById('connec').value = 'connec';
+    } else {
+        document.getElementById('connec').value = 'Not connec';
+    }
+    function changeSwitch(value) {
+        if (value == "ON") {
+            document.getElementById('switch').value = "OFF";
+
+        } else {
+            document.getElementById('switch').value = "ON";
+        }
+    }
+
+
 </script>
 
 </html>
