@@ -9,8 +9,9 @@
 </head>
 
 <body>
-    <canvas  id="collision" height="500" width="700" style="background-image: url(https://blogs.esa.int/space19plus/files/2019/03/nebula.jpg);background-size: contain;background-attachment: fixed;background-position: 0 -200;"></canvas>
-    
+    <canvas id="collision" height="500" width="700"
+        style="background-image: url(https://blogs.esa.int/space19plus/files/2019/03/nebula.jpg);background-size: contain;background-attachment: fixed;background-position: 0 -200;"></canvas>
+
 </body>
 
 </html>
@@ -19,10 +20,12 @@
     const step = 10;
     var canvasBall = document.getElementById("collision");
     var ball = canvasBall.getContext("2d");
-    var x_ball = 20;
+    var x_ball = 40;
     var y_ball = 20;
     var radius = 20;
-    const speed = 5;
+    var speedX = 5;
+    var speedY = 10;
+    var checkUpDown = true;
     function drawBall() {
         ball.beginPath();
         ball.fillStyle = 'rgb(113, 239, 163)';
@@ -39,7 +42,7 @@
         rect.beginPath();
         rect.fillStyle = 'rgb(84, 67, 107)'
         rect.fillRect(x_rect, y_rect, width_rect, height_rect);
-        
+
     }
 
     function moveLeft() {
@@ -60,18 +63,35 @@
                 break;
         }
     }
-    setInterval(function () { 
+    let myvar = setInterval(function () {
         ball.clearRect(0, 0, collision.width, collision.height);
-        x_ball += speed;
-        y_ball += speed;
-        if (x_ball == canvasRect.width) {
-            x_ball =- speed;
+        console.log('x_ball ' + x_ball)
+        console.log(canvasBall.width)
+
+        // so sánh toạ độ X của ball với thành canvas
+        if (x_ball < radius || x_ball > canvasBall.width - radius) {
+            speedX = - speedX;
         }
-        if (y_ball == canvasRect.height) {
-            y_ball = -speed;
+        // so sánh toạ độ Y của ball với thành canvas
+
+        if (y_ball < radius) 
+        // || y_ball > canvasBall.height - radius) 
+        {
+            speedY = - speedY;
         }
+        x_ball += speedX;
+        y_ball += speedY;
+        if (y_ball > canvasBall.height-radius){
+            clearInterval(myvar);
+            alert(`Lost`)
+        }  
+        if(x_ball == x_rect && y_ball+10 == canvasBall.height-height_rect){
+            speedX = - speedX;
+        }
+        console.log(x_rect,y_ball-10,canvasBall.height-height_rect,height_rect)
         drawBall();
         drawRect();
-      
     }, 50)
+
+
 </script>

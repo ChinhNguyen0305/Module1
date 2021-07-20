@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    class SwitchButton {
+        constructor() {
+            this.status = Boolean;
+
+        };
+        setContainer(container) {
+            this.container = container;
+        }
+        connectToLamp() {
+            this.container.status= this.status 
+        }
+        switchOn() {
+            this.container.status = true;
+            this.container.work();
+
+        }
+        switchOff() {
+            this.container.status = false;
+            this.container.work();
+        }
+    };
+    class Lamp {
+        constructor() {
+            this.status = Boolean;
+        }
+        // setSwitch(obj) {
+        //     this.status = obj.status
+        // }
+        work() {
+            if (this.status == true) {
+                alert('Lighting')
+            } else
+                alert('Not Lighting')
+        }
+    }
+
+    var SwitchOne = new SwitchButton();
+    var firstLamp = new Lamp();
+</script>
+
+</html>
