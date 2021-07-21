@@ -16,7 +16,7 @@
 
         input {
             height: 25px;
-            width: 50px;
+            width: 200px;
         }
 
         span {
@@ -28,12 +28,12 @@
 
 <body>
     <canvas id="collision" height="500" width="1000"
-        style="background-image: url(https://blogs.esa.int/space19plus/files/2019/03/nebula.jpg);background-size: contain;background-attachment: fixed;background-position: 0 -200;"></canvas>
+        style="background-image: url(https://img.freepik.com/free-vector/cartoon-galaxy-background_23-2148973052.jpg?size=626&ext=jpg);background-size: contain ;background-attachment: fixed;;"></canvas>
     <div>
-        <span> Controll ball's speed :</span> <input type="number" id="speedcontroll"
+        <span> Controll ball's speed :</span> <input type="number" id="speedcontroll" placeholder="Recommend: 10"
             oninput="speedX = parseInt(this.value);speedY=parseFloat(this.value)">
         <br>
-        <span>Controll Bar's Speed:</span> <input type="number" oninput="step = this.value">
+        <span>Controll Bar's Speed:</span> <input type="number" oninput="step = this.value" placeholder="Recommend: 20">
         <br>
     </div>
     <button class="btn btn-success">Playgame</button>
@@ -128,24 +128,24 @@
         var bg = document.getElementsByTagName('canvas')[0];
         switch (generateNumber) {
             case 0:
-                bg.style.backgroundImage = `url(https://www.impel.eu/wp-content/uploads/2019/08/mediterranean-sea.jpg)`
+                bg.style.backgroundImage = `url(https://ak.picdn.net/shutterstock/videos/1022575267/thumb/1.jpg)`
                 break;
             case 1:
-                bg.style.backgroundImage = `url(https://buocchankhongmoi.com/wp-content/uploads/2016/02/ho-hoa-trung-da-nang-du-lich-da-nang-1.jpg)`
+                bg.style.backgroundImage = `url(https://img.freepik.com/free-vector/morning-time-countryside-with-meadow-mountain_116220-257.jpg?size=626&ext=jpg)`
                 break;
             case 2:
-                bg.style.backgroundImage = `url(https://icdn.dantri.com.vn/2016/photo-1-1480564590465.jpg)`
+                bg.style.backgroundImage = `url(https://ms.yugipedia.com//thumb/a/af/DesertField-JP-Anime-ZX-NC.png/1200px-DesertField-JP-Anime-ZX-NC.png)`
                 break;
             case 3:
-                bg.style.backgroundImage = `url(https://blogs.esa.int/space19plus/files/2019/03/nebula.jpg)`
+                bg.style.backgroundImage = `url(https://img.freepik.com/free-vector/cartoon-galaxy-background_23-2148973052.jpg?size=626&ext=jpg)`
 
         }
     }
     function ballSizeUp() {
-        radius+=5;
+        radius += 5;
     }
     function ballSizeDown() {
-        radius-=5;
+        radius -= 5;
     }
 
 
