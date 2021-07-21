@@ -17,9 +17,9 @@
 </html>
 <script>
     window.addEventListener('keydown', controllBar);
-    const step = 10;
-    var canvasBall = document.getElementById("collision");
-    var ball = canvasBall.getContext("2d");
+    const step = 30;
+    var canvas = document.getElementById("collision");
+    var ball = canvas.getContext("2d");
     var x_ball = 40;
     var y_ball = 20;
     var radius = 20;
@@ -32,8 +32,8 @@
         ball.arc(x_ball, y_ball, radius, 0, 2 * Math.PI);
         ball.fill();
     }
-    var canvasRect = document.getElementById("collision");
-    var rect = canvasRect.getContext('2d');
+
+    var rect = canvas.getContext('2d');
     var x_rect = 330;
     var y_rect = 490;
     var width_rect = 100;
@@ -44,48 +44,58 @@
         rect.fillRect(x_rect, y_rect, width_rect, height_rect);
 
     }
-
     function moveLeft() {
-        x_rect -= step;
+        if (x_rect > 0)
+            x_rect -= step;
 
     }
     function moveRight() {
-        x_rect += step;
+        if (x_rect < canvas.width - width_rect) {
+            x_rect += step;
+        }
+    }
+    function moveUp() {
+        y_rect -= step;
+    }
+    function moveDown() {
+        y_rect += step;
     }
     function controllBar(evt) {
         switch (evt.keyCode) {
             case 37:
                 moveLeft();
                 break;
-
+            // case 38:
+            //     moveUp();
+            //     break;
             case 39:
                 moveRight();
                 break;
+            // case 40:
+            //     moveDown();
+            //     break;
         }
     }
-    let myvar = setInterval(function () {
+    let myGame = setInterval(function () {
         ball.clearRect(0, 0, collision.width, collision.height);
-        console.log('x_ball ' + x_ball)
-        console.log(canvasBall.width)
-
-        // so sánh toạ độ X của ball với thành canvas
-        if (x_ball < radius || x_ball > canvasBall.width - radius) {
+        if (y_ball > canvas.height - radius && x_ball > (x_rect + width_rect)) {
+            alert('lost')
+            clearInterval(myGame)
+        } else if (y_ball > canvas.height - radius && x_ball < x_rect) {
+            alert('lost')
+            clearInterval(myGame)
+        } else if (x_ball < radius || x_ball > canvas.width - radius) {
             speedX = -speedX;
-        }
-        // so sánh toạ độ Y của ball với thành canvas
-
-        if (y_ball < radius || y_ball > canvasBall.height - radius)  
-        // 
-        {
+        } else if (y_ball < radius || y_ball > canvas.height - radius) {
             speedY = -speedY;
         }
+        console.log(x_ball < x_rect - rect.width)
+
         x_ball += speedX;
         y_ball += speedY;
 
-        if(x_ball == x_rect && y_ball-radius == canvasBall.height-height_rect){
-            speedX = - speedX;
-        }
-        
+
+
         drawBall();
         drawRect();
     }, 50)
