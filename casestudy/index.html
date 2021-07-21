@@ -6,24 +6,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        div {
+            margin: 20px;
+
+        }
+
+        input {
+            height: 25px;
+            width: 50px;
+        }
+
+        span {
+            font-family: 'Times New Roman', Times, serif;
+            color: darkcyan;
+        }
+    </style>
 </head>
 
 <body>
-    <canvas id="collision" height="500" width="700"
+    <canvas id="collision" height="500" width="1000"
         style="background-image: url(https://blogs.esa.int/space19plus/files/2019/03/nebula.jpg);background-size: contain;background-attachment: fixed;background-position: 0 -200;"></canvas>
+    <div>
+        <span> Controll ball's speed :</span> <input type="number" id="speedcontroll"
+            oninput="speedX = parseInt(this.value);speedY=parseFloat(this.value)">
+        <br>
+        <span>Controll Bar's Speed:</span> <input type="number" oninput="step = this.value">
+        <br>
+    </div>
+    <button class="btn btn-success">Playgame</button>
+    <button class="btn btn-primary" onclick="changebg()">Change BackGround</button>
+    <div>
+        <span>Change Ball size</span>
+        <button class="btn btn-primary" onclick="ballSizeUp()">&uparrow;</button>
+        <button class="btn btn-primary" onclick="ballSizeDown()">&downarrow;</button>
+    </div>
+
 
 </body>
 
 </html>
 <script>
+    document.getElementsByTagName('button')[0].addEventListener('click', playgame)
     window.addEventListener('keydown', controllBar);
-    const step = 30;
+    const step = 20;
     var canvas = document.getElementById("collision");
     var ball = canvas.getContext("2d");
     var x_ball = 40;
     var y_ball = 20;
     var radius = 20;
-    var speedX = 5;
+    var speedX = 10;
     var speedY = 10;
     var checkUpDown = true;
     function drawBall() {
@@ -42,12 +76,10 @@
         rect.beginPath();
         rect.fillStyle = 'rgb(84, 67, 107)'
         rect.fillRect(x_rect, y_rect, width_rect, height_rect);
-
     }
     function moveLeft() {
         if (x_rect > 0)
             x_rect -= step;
-
     }
     function moveRight() {
         if (x_rect < canvas.width - width_rect) {
@@ -65,40 +97,59 @@
             case 37:
                 moveLeft();
                 break;
-            // case 38:
-            //     moveUp();
-            //     break;
             case 39:
                 moveRight();
                 break;
-            // case 40:
-            //     moveDown();
-            //     break;
         }
     }
-    let myGame = setInterval(function () {
-        ball.clearRect(0, 0, collision.width, collision.height);
-        if (y_ball > canvas.height - radius && x_ball > (x_rect + width_rect)) {
-            alert('lost')
-            clearInterval(myGame)
-        } else if (y_ball > canvas.height - radius && x_ball < x_rect) {
-            alert('lost')
-            clearInterval(myGame)
-        } else if (x_ball < radius || x_ball > canvas.width - radius) {
-            speedX = -speedX;
-        } else if (y_ball < radius || y_ball > canvas.height - radius) {
-            speedY = -speedY;
+    function playgame() {
+        let myGame = setInterval(function () {
+            ball.clearRect(0, 0, collision.width, collision.height);
+            if (y_ball > canvas.height - radius && x_ball > (x_rect + width_rect)) {
+                alert('You lost')
+                clearInterval(myGame)
+            } else if (y_ball > canvas.height - radius && x_ball < x_rect) {
+                alert('You lost')
+                clearInterval(myGame)
+            } else if (x_ball < radius || x_ball > canvas.width - radius) {
+                speedX = -speedX;
+            } else if (y_ball < radius || y_ball > canvas.height - radius) {
+                speedY = -speedY;
+            }
+            x_ball += speedX;
+            y_ball += speedY;
+            drawBall();
+            drawRect();
+        }, 50)
+    }
+    function changebg() {
+        var generateNumber = Math.floor(Math.random() * 4);
+        console.log(generateNumber)
+        var bg = document.getElementsByTagName('canvas')[0];
+        switch (generateNumber) {
+            case 0:
+                bg.style.backgroundImage = `url(https://www.impel.eu/wp-content/uploads/2019/08/mediterranean-sea.jpg)`
+                break;
+            case 1:
+                bg.style.backgroundImage = `url(https://buocchankhongmoi.com/wp-content/uploads/2016/02/ho-hoa-trung-da-nang-du-lich-da-nang-1.jpg)`
+                break;
+            case 2:
+                bg.style.backgroundImage = `url(https://icdn.dantri.com.vn/2016/photo-1-1480564590465.jpg)`
+                break;
+            case 3:
+                bg.style.backgroundImage = `url(https://blogs.esa.int/space19plus/files/2019/03/nebula.jpg)`
+
         }
-        console.log(x_ball < x_rect - rect.width)
+    }
+    function ballSizeUp() {
+        radius+=5;
+    }
+    function ballSizeDown() {
+        radius-=5;
+    }
 
-        x_ball += speedX;
-        y_ball += speedY;
 
 
-
-        drawBall();
-        drawRect();
-    }, 50)
 
 
 </script>
