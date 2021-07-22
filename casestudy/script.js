@@ -1,12 +1,13 @@
 document.getElementsByTagName('button')[0].addEventListener('click', playgame)
 window.addEventListener('keydown', controllBar);
-const step = 20;
+
+var step = 20;
 var canvas = document.getElementById("collision");
 var ball = canvas.getContext("2d");
 var x_ball = 40;
-var y_ball = 20;
+var y_ball = 20;        
 var radius = 20;
-var speedX = 10;
+var speedX = 5;
 var speedY = 10;
 var ballStyle = `rgb(236, 239, 164)`
 function drawBall() {
@@ -31,11 +32,9 @@ function changeBallColor() {
             break;
         case 2:
             ballStyle = `rgb(168, 216, 234)`;
-
             break;
         case 3:
             ballStyle = `rgb(0, 173, 181)`;
-
             break;
         case 4:
             ballStyle = `rgb(238, 238, 238)`;
@@ -88,12 +87,6 @@ function moveRight() {
         x_rect += step;
     }
 }
-function moveUp() {
-    y_rect -= step;
-}
-function moveDown() {
-    y_rect += step;
-}
 function controllBar(evt) {
     switch (evt.keyCode) {
         case 37:
@@ -135,10 +128,17 @@ function ballSizeDown() {
         radius -= 5;
     }
 }
+function playSound() {
+    let sound = document.getElementById('loadSoud');
+    sound.innerHTML = `<audio autoplay src="beep.wav"></audio>`;
+}
+function sizeSound() {
+    let adjustSize = document.getElementById('pumbSound');
+    adjustSize.innerHTML = ` <audio autoplay src="pumb .wav"></audio> `
+}
+
 function playgame() {
     let myGame = setInterval(function () {
-        x_ball += speedX;
-        y_ball += speedY;
         ball.clearRect(0, 0, collision.width, collision.height);
         if (y_ball > canvas.height - radius && x_ball > (x_rect + width_rect)) {
             alertLose();
@@ -147,11 +147,15 @@ function playgame() {
             alertLose();
             clearInterval(myGame)
         } else if (x_ball < radius || x_ball > canvas.width - radius) {
+            playSound();
             speedX = -speedX;
         } else if (y_ball < radius || y_ball > canvas.height - radius) {
+            playSound();
+
             speedY = -speedY;
         }
-        
+        x_ball += speedX;
+        y_ball += speedY;
         drawBall();
         drawRect();
     }, 50)

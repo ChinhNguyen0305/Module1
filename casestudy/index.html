@@ -17,11 +17,11 @@
     <div>
         <span> Controll ball's speed :</span>
         <input type="number" id="speedcontroll" placeholder="Recommend: 10"
-            oninput="speedX = parseInt(this.value);speedY=parseFloat(this.value)"
+            oninput="speedX = parseFloat(this.value);speedY=parseFloat(this.value)+3"
             onfocus="this.style.backgroundColor = `rgb(243, 242, 201)`" onblur="this.style.backgroundColor = `white`">
         <br>
         <span>Controll bar's speed:</span>
-        <input type="number" oninput="step = this.value" placeholder="Recommend: 20"
+        <input type="number" placeholder="Recommend: 20" oninput= "step = parseFloat(this.value)" ;
             onfocus="this.style.backgroundColor = `rgb(243, 242, 201)`" onblur="this.style.backgroundColor = `white`">
         <br>
     </div>
@@ -31,8 +31,12 @@
     <button class="btn btn-info" onclick="changeBallColor()">Change ball's color</button>
     <div class="controllBall-size">
         <span class="change-size">Change ball's size</span>
-        <button class="btn btn-primary" onclick="ballSizeUp()">&uparrow;</button>
-        <button class="btn btn-primary" onclick="ballSizeDown()">&downarrow;</button>
+        <button class="btn btn-primary" onclick="ballSizeUp();sizeSound() ">&uparrow;</button>
+        <button class="btn btn-primary" onclick="ballSizeDown();sizeSound()">&downarrow;</button>
+        <div id="loadSoud"></div>
+        <div id="pumbSound"></div>
+        <audio autoplay src="beep.wav" style="display: block;"></audio>
+
     </div>
 
 </body>
