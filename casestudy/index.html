@@ -8,143 +8,34 @@
     <title>Bouncing ball</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <style>
-        div {
-            margin: 20px;
-
-        }
-
-        input {
-            height: 25px;
-            width: 200px;
-        }
-
-        span {
-            font-family: 'Times New Roman', Times, serif;
-            color: darkcyan;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <canvas id="collision" height="500" width="1000"
         style="background-image: url(https://img.freepik.com/free-vector/cartoon-galaxy-background_23-2148973052.jpg?size=626&ext=jpg);background-size: contain ;background-attachment: fixed;;"></canvas>
     <div>
-        <span> Controll ball's speed :</span> <input type="number" id="speedcontroll" placeholder="Recommend: 10"
-            oninput="speedX = parseInt(this.value);speedY=parseFloat(this.value)">
+        <span> Controll ball's speed :</span>
+        <input type="number" id="speedcontroll" placeholder="Recommend: 10"
+            oninput="speedX = parseInt(this.value);speedY=parseFloat(this.value)"
+            onfocus="this.style.backgroundColor = `rgb(243, 242, 201)`" onblur="this.style.backgroundColor = `white`">
         <br>
-        <span>Controll Bar's Speed:</span> <input type="number" oninput="step = this.value" placeholder="Recommend: 20">
+        <span>Controll bar's speed:</span>
+        <input type="number" oninput="step = this.value" placeholder="Recommend: 20"
+            onfocus="this.style.backgroundColor = `rgb(243, 242, 201)`" onblur="this.style.backgroundColor = `white`">
         <br>
     </div>
     <button class="btn btn-success">Playgame</button>
     <button class="btn btn-primary" onclick="changebg()">Change BackGround</button>
-    <div>
-        <span>Change Ball size</span>
+    <button class="btn btn-warning" onclick="changeBarColor()">Change bar's color</button>
+    <button class="btn btn-info" onclick="changeBallColor()">Change ball's color</button>
+    <div class="controllBall-size">
+        <span class="change-size">Change ball's size</span>
         <button class="btn btn-primary" onclick="ballSizeUp()">&uparrow;</button>
         <button class="btn btn-primary" onclick="ballSizeDown()">&downarrow;</button>
     </div>
 
-
 </body>
-<script>
-    document.getElementsByTagName('button')[0].addEventListener('click', playgame)
-    window.addEventListener('keydown', controllBar);
-    const step = 20;
-    var canvas = document.getElementById("collision");
-    var ball = canvas.getContext("2d");
-    var x_ball = 40;
-    var y_ball = 20;
-    var radius = 20;
-    var speedX = 10;
-    var speedY = 10;
-    var checkUpDown = true;
-    function drawBall() {
-        ball.beginPath();
-        ball.fillStyle = 'rgb(113, 239, 163)';
-        ball.arc(x_ball, y_ball, radius, 0, 2 * Math.PI);
-        ball.fill();
-    }
-
-    var rect = canvas.getContext('2d');
-    var x_rect = 330;
-    var y_rect = 490;
-    var width_rect = 100;
-    var height_rect = 10;
-    function drawRect() {
-        rect.beginPath();
-        rect.fillStyle = 'rgb(84, 67, 107)'
-        rect.fillRect(x_rect, y_rect, width_rect, height_rect);
-    }
-    function moveLeft() {
-        if (x_rect > 0)
-            x_rect -= step;
-    }
-    function moveRight() {
-        if (x_rect < canvas.width - width_rect) {
-            x_rect += step;
-        }
-    }
-    function moveUp() {
-        y_rect -= step;
-    }
-    function moveDown() {
-        y_rect += step;
-    }
-    function controllBar(evt) {
-        switch (evt.keyCode) {
-            case 37:
-                moveLeft();
-                break;
-            case 39:
-                moveRight();
-                break;
-        }
-    }
-    function playgame() {
-        let myGame = setInterval(function () {
-            ball.clearRect(0, 0, collision.width, collision.height);
-            if (y_ball > canvas.height - radius && x_ball > (x_rect + width_rect)) {
-                alert('You lost')
-                clearInterval(myGame)
-            } else if (y_ball > canvas.height - radius && x_ball < x_rect) {
-                alert('You lost')
-                clearInterval(myGame)
-            } else if (x_ball < radius || x_ball > canvas.width - radius) {
-                speedX = -speedX;
-            } else if (y_ball < radius || y_ball > canvas.height - radius) {
-                speedY = -speedY;
-            }
-            x_ball += speedX;
-            y_ball += speedY;
-            drawBall();
-            drawRect();
-        }, 50)
-    }
-    function changebg() {
-        var generateNumber = Math.floor(Math.random() * 4);
-        console.log(generateNumber)
-        var bg = document.getElementsByTagName('canvas')[0];
-        switch (generateNumber) {
-            case 0:
-                bg.style.backgroundImage = `url(https://ak.picdn.net/shutterstock/videos/1022575267/thumb/1.jpg)`
-                break;
-            case 1:
-                bg.style.backgroundImage = `url(https://img.freepik.com/free-vector/morning-time-countryside-with-meadow-mountain_116220-257.jpg?size=626&ext=jpg)`
-                break;
-            case 2:
-                bg.style.backgroundImage = `url(https://ms.yugipedia.com//thumb/a/af/DesertField-JP-Anime-ZX-NC.png/1200px-DesertField-JP-Anime-ZX-NC.png)`
-                break;
-            case 3:
-                bg.style.backgroundImage = `url(https://img.freepik.com/free-vector/cartoon-galaxy-background_23-2148973052.jpg?size=626&ext=jpg)`
-
-        }
-    }
-    function ballSizeUp() {
-        radius += 5;
-    }
-    function ballSizeDown() {
-        radius -= 5;
-    }
-</script>
+<script src="script.js"> </script>
 
 </html>

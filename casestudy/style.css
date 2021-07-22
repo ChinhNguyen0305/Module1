@@ -1,0 +1,26 @@
+div {
+    margin: 20px;
+
+}
+
+input {
+    height: 25px;
+    width: 200px;
+    border-radius: 5px;
+}
+
+span {
+    font-family: 'Times New Roman', Times, serif;
+    color: darkcyan;
+    background-color: rgb(255, 188, 188);
+    border-radius: 5px;
+    font-size: 25px;
+}
+
+.controllBall-size {
+    margin-top: 20px;
+}
+
+.change-size {
+    margin-top: 20px;
+}
