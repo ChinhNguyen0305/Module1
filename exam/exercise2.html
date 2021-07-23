@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 2</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function sizeOfNumber(numb) {
+        var counter = 0;
+        while (numb > 1) {
+            numb /= 10;
+            counter++
+        } return counter;
+    }
+
+
+    function isSymmetricalNumber(number) {
+        if (number <= 100) {
+            return false;
+        }
+        let arrayNumber = [];
+        var temp = number % 10;
+        rest = number - temp;
+        arrayNumber.push(temp);
+        for (let i = 0; i < sizeOfNumber(number) - 1; i++) {
+            rest = Math.floor(rest / 10);
+            arrayNumber.push(rest % 10);
+        }
+        for (let j = 0; j < arrayNumber.length / 2; j++) {
+            if (arrayNumber[j] != arrayNumber[arrayNumber.length - 1 - j]) {
+                return false;
+            }
+        } return true;
+    }
+
+
+
+    for (let i = 100; i <= 20000; i++) {
+        if (isSymmetricalNumber(i)) {
+            document.write(`${i},`)
+        }
+    }
+</script>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOP</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    class Student {
+        name;
+        age;
+        email;
+        address;
+        
+        // thieu 1 so phuong thuc
+        constructor(name, age, email) {
+            this.name = name;
+            this.age = age;
+            this.email = email;
+        }
+        inputScores(math, physics, chemistry) {
+            this.mathScore = math;
+            this.physicsScore = physics;
+            this.chemistryScore = chemistry;
+        }
+        calsAverageScores() {
+            return (this.mathScore * 2 + this.physicsScore + this.chemistryScore) / 4;
+        }
+
+        rank() {
+            var grade = '';
+            if (this.calsAverageScores() >= 9 && this.calsAverageScores() <= 10) {
+                grade = `Xuất sắc`;
+            } else if (this.calsAverageScores() >= 8 && this.calsAverageScores() < 9) {
+                grade = `Giỏi`;
+            } else if (this.calsAverageScores() >= 7 && this.calsAverageScores() < 8) {
+                grade = `Khá`;
+            } else if (this.calsAverageScores() >= 5 && this.calsAverageScores() < 7) {
+                grade = `trung bình`;
+            } else if (this.calsAverageScores() >= 0 && this.calsAverageScores() < 5) {
+                grade = `Yếu`;
+            }
+            return grade;
+        }
+        printInfo() {
+            this.calsAverageScores();
+            this.rank();
+            document.write(`Name: ${this.name} <br> Age : ${this.age} <br> Email: ${this.email} <br> matchScore: ${this.mathScore} <br> physicsScore: ${this.physicsScore} <br> chemistryScore: ${this.chemistryScore} <br> AverageScore: ${this.calsAverageScores()} <br> Rank : ${this.rank()}`)
+        }
+    }
+
+    let chinhNguyen = new Student('Chinh', 24, 'giachinh@gmail.com');
+    chinhNguyen.inputScores(10, 10, 10);
+    chinhNguyen.printInfo();
+    document.write(`<br> <-----> <br>`);
+    let hoangNguyen = new Student('Hoang', 26, 'hoangNguyen@gmail.com');
+    hoangNguyen.inputScores(8, 6, 9);
+    hoangNguyen.printInfo();
+    document.write(`<br> <-----> <br>`);
+    let huyNguyen = new Student('Huy', 30, 'huyTran@gmail.com');
+    huyNguyen.inputScores(3, 3, 3);
+    huyNguyen.printInfo();
+
+
+</script>
+
+</html>

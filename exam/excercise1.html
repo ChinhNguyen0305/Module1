@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 1</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+    function createArray(size) {
+        let arr = [];
+        for (let i = 0; i < size; i++) {
+            arr.push(Math.floor(Math.random() * 61 + 10));
+        }
+        return arr;
+    }
+
+    var size = parseInt(prompt('enter size: '));
+    let arrayA = createArray(size);
+    function printArray(arr) {
+        document.write(arr.join('-'));
+    }
+
+
+    printArray(arrayA);
+    document.write(`<br>`);
+    document.write(`<------------>`);
+    document.write(`<br>`);
+
+
+    function findMax(arr) {
+        let max = arr[0];
+        for (value of arr) {
+            if (value > max) {
+                max = value;
+            }
+        } return max;
+    }
+
+
+    function isPerfectSquare(number) {
+        let result = Math.sqrt(number);
+        if (result % 1 == 0) {
+            return true;
+        } return false;
+    }
+
+
+    function countPerfectSquares(arr) {
+        let count = 0;
+        for (value of arr) {
+            if (isPerfectSquare(value)) {
+                count++
+            }
+        } return count;
+    }
+
+
+    function main() {
+        let size = parseInt(prompt('Enter a number :'));
+        if (size <= 0) {
+            alert('invalid');
+        }
+        let arrayZ = createArray(size);
+        document.write('ArrayZ :')
+        printArray(arrayZ);
+        document.write(`<br>`);
+        document.write(`ArrayZ's max: ${findMax(arrayZ)} <br>`);
+        document.write(`Number of perfect square in array : ${countPerfectSquares(arrayZ)}`)
+    }
+
+    main();
+
+
+</script>
+
+</html>

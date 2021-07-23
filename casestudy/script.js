@@ -1,11 +1,11 @@
 document.getElementsByTagName('button')[0].addEventListener('click', playgame)
 window.addEventListener('keydown', controllBar);
 
-var step = 20;
+var step = 35;
 var canvas = document.getElementById("collision");
 var ball = canvas.getContext("2d");
-var x_ball = 40;
-var y_ball = 20;        
+var x_ball = 500;
+var y_ball = 250;
 var radius = 20;
 var speedX = 5;
 var speedY = 10;
@@ -136,27 +136,29 @@ function sizeSound() {
     let adjustSize = document.getElementById('pumbSound');
     adjustSize.innerHTML = ` <audio autoplay src="pumb .wav"></audio> `
 }
-
+var accelerate = setInterval(function () {
+    speedX += 2;
+    speedY += 1;
+}, 3000);
 function playgame() {
     let myGame = setInterval(function () {
         ball.clearRect(0, 0, collision.width, collision.height);
         if (y_ball > canvas.height - radius && x_ball > (x_rect + width_rect)) {
             alertLose();
-            clearInterval(myGame)
+            clearInterval(myGame);
         } else if (y_ball > canvas.height - radius && x_ball < x_rect) {
             alertLose();
-            clearInterval(myGame)
+            clearInterval(myGame);
         } else if (x_ball < radius || x_ball > canvas.width - radius) {
             playSound();
             speedX = -speedX;
         } else if (y_ball < radius || y_ball > canvas.height - radius) {
             playSound();
-
             speedY = -speedY;
         }
         x_ball += speedX;
         y_ball += speedY;
         drawBall();
         drawRect();
-    }, 50)
+    }, 24)
 }
