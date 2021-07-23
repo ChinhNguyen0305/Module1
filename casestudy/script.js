@@ -4,8 +4,8 @@ window.addEventListener('keydown', controllBar);
 var step = 35;
 var canvas = document.getElementById("collision");
 var ball = canvas.getContext("2d");
-var x_ball = 500;
-var y_ball = 250;
+var x_ball = 20;
+var y_ball = 20;
 var radius = 20;
 var speedX = 5;
 var speedY = 10;
@@ -140,8 +140,16 @@ var accelerate = setInterval(function () {
     speedX += 2;
     speedY += 1;
 }, 3000);
-drawBall();
-drawRect();
+
+function settingGame() {
+    drawBall();
+    drawRect();
+}
+
+setInterval(function () {
+    ball.clearRect(0, 0, collision.width, collision.height)
+    settingGame();
+}, 200)
 function playgame() {
     drawBall();
     drawRect();

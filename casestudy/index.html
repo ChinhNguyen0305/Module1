@@ -17,11 +17,11 @@
     <div>
         <span> Controll ball's speed :</span>
         <input type="number" id="speedcontroll" placeholder="Recommend: 10"
-            oninput="speedX = parseFloat(this.value);speedY=parseFloat(this.value)+3"
+            oninput="speedX = parseFloat(this.value <13? this.value:13);speedY=parseFloat(this.value<13? this.value: 13)+3"
             onfocus="this.style.backgroundColor = `rgb(243, 242, 201)`" onblur="this.style.backgroundColor = `white`">
         <br>
         <span>Controll bar's speed:</span>
-        <input type="number" placeholder="Recommend: 20" oninput= "step = parseFloat(this.value)" ;
+        <input type="number" placeholder="Recommend: 20" oninput="step = parseFloat(this.value)" ;
             onfocus="this.style.backgroundColor = `rgb(243, 242, 201)`" onblur="this.style.backgroundColor = `white`">
         <br>
     </div>
