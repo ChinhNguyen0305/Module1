@@ -140,7 +140,11 @@ var accelerate = setInterval(function () {
     speedX += 2;
     speedY += 1;
 }, 3000);
+drawBall();
+drawRect();
 function playgame() {
+    drawBall();
+    drawRect();
     let myGame = setInterval(function () {
         ball.clearRect(0, 0, collision.width, collision.height);
         if (y_ball > canvas.height - radius && x_ball > (x_rect + width_rect)) {
